@@ -1,0 +1,1632 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LAMKUBEZPIECZENIA.pl | Radosław Lamk - agent ubezpieczeniowy</title>
+  <meta name="description" content="Radosław Lamk - agent ubezpieczeniowy. Porównanie ofert OC, AC, domu, życia, firmy, podróży, rolnictwa, GAP, telefonu i ubezpieczeń zdrowotnych." />
+  <style>
+    :root {
+      --navy: #0e2238;
+      --blue: #1f5f9f;
+      --teal: #0f8b8d;
+      --gold: #c69a3b;
+      --ink: #17202b;
+      --muted: #607085;
+      --paper: #f7f8fa;
+      --white: #ffffff;
+      --line: rgba(14, 34, 56, 0.13);
+      --shadow: 0 22px 60px rgba(14, 34, 56, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--navy), var(--teal));
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(15, 139, 141, 0.22);
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: clamp(1rem, 2.4vw, 1.22rem);
+      color: var(--navy);
+      line-height: 1.1;
+      overflow-wrap: anywhere;
+    }
+
+    .brand-text span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.86rem;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: #34465b;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 8px;
+      background: var(--gold);
+      color: #111827;
+      font-weight: 800;
+      box-shadow: 0 12px 22px rgba(198, 154, 59, 0.24);
+      border: 1px solid rgba(91, 67, 15, 0.12);
+    }
+
+    .button.secondary {
+      background: var(--white);
+      color: var(--navy);
+      box-shadow: none;
+      border-color: var(--line);
+    }
+
+    .button.dark {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: none;
+    }
+
+    .hero {
+      background:
+        linear-gradient(90deg, rgba(14, 34, 56, 0.94) 0%, rgba(14, 34, 56, 0.84) 42%, rgba(14, 34, 56, 0.18) 78%),
+        url("radoslaw-lamk.jpg") center right 18% / cover no-repeat;
+      color: var(--white);
+      min-height: clamp(620px, 88vh, 780px);
+      display: flex;
+      align-items: stretch;
+    }
+
+    .hero-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 74px 0 46px;
+      display: grid;
+      grid-template-columns: minmax(0, 640px) 1fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .eyebrow {
+      color: #f6d889;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin: 0 0 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.65rem, 6vw, 5.6rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+      max-width: 760px;
+    }
+
+    .lead {
+      margin: 24px 0 0;
+      max-width: 650px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 48px;
+      max-width: 700px;
+    }
+
+    .trust-item {
+      border-left: 3px solid var(--gold);
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--white);
+      font-size: 1rem;
+    }
+
+    .trust-item span {
+      display: block;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.88rem;
+      margin-top: 3px;
+    }
+
+    main section { padding: 86px 0; }
+    .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.75fr);
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 38px;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .section-heading p,
+    .about-text p,
+    .contact-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .product-card {
+      min-height: 240px;
+      padding: 24px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 12px 30px rgba(14, 34, 56, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: left;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .product-card:hover,
+    .product-card:focus-visible {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: rgba(31, 95, 159, 0.28);
+      outline: none;
+    }
+
+    .product-card.is-active {
+      border-color: var(--gold);
+      box-shadow: 0 18px 42px rgba(198, 154, 59, 0.18);
+    }
+
+    .product-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .product-graphic {
+      width: 74px;
+      height: 74px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 8px;
+      color: var(--navy);
+      background:
+        radial-gradient(circle at 74% 22%, rgba(198, 154, 59, 0.34) 0 15%, transparent 16%),
+        linear-gradient(135deg, #e8f3f3, #f9f3e5);
+      border: 1px solid rgba(14, 34, 56, 0.08);
+    }
+
+    .product-graphic svg {
+      width: 44px;
+      height: 44px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .product-card h3 {
+      margin: 18px 0 8px;
+      color: var(--navy);
+      font-size: 1.18rem;
+      line-height: 1.2;
+    }
+
+    .product-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .product-card .mini-link {
+      margin-top: 18px;
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 0.94rem;
+    }
+
+    .insurance-detail {
+      margin-top: 34px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .detail-head {
+      display: grid;
+      grid-template-columns: 1fr 92px;
+      gap: 28px;
+      padding: 30px;
+      background: linear-gradient(135deg, #10253d, #0f6775);
+      color: var(--white);
+    }
+
+    .detail-head h3 {
+      margin: 0;
+      font-size: clamp(1.55rem, 3vw, 2.25rem);
+      line-height: 1.08;
+    }
+
+    .detail-head p {
+      margin: 14px 0 0;
+      color: rgba(255, 255, 255, 0.82);
+      max-width: 760px;
+    }
+
+    .detail-visual {
+      width: 92px;
+      height: 92px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .detail-visual svg {
+      width: 54px;
+      height: 54px;
+      stroke: #f6d889;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .detail-body {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(340px, 1.1fr);
+      gap: 0;
+    }
+
+    .seo-copy,
+    .quote-form-wrap {
+      padding: 30px;
+    }
+
+    .seo-copy {
+      border-right: 1px solid var(--line);
+    }
+
+    .seo-copy h4,
+    .quote-form-wrap h4,
+    .blog-card h3 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 1.18rem;
+    }
+
+    .seo-copy p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .benefits {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .benefits li {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+      color: #34465b;
+    }
+
+    .benefits li::before {
+      content: "✓";
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      background: #e8f3f3;
+      color: var(--teal);
+      font-weight: 900;
+    }
+
+    .quote-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+    .field label { color: var(--navy); font-size: 0.9rem; font-weight: 800; }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 12px;
+      border: 1px solid rgba(14, 34, 56, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .field textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .form-actions {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .form-note {
+      grid-column: 1 / -1;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .form-status {
+      color: var(--teal);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .legal-consent-block {
+      grid-column: 1 / -1;
+      display: grid;
+      gap: 10px;
+      margin-top: 4px;
+      padding: 14px;
+      border: 1px solid rgba(14, 34, 56, 0.12);
+      border-radius: 8px;
+      background: #fafbfc;
+      color: #6b7280;
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
+
+    .legal-check {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 9px;
+      align-items: start;
+      color: #4b5563;
+      cursor: pointer;
+    }
+
+    .legal-check input {
+      width: 16px;
+      height: 16px;
+      min-height: 0;
+      margin: 2px 0 0;
+      accent-color: var(--teal);
+    }
+
+    .legal-check a {
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .legal-fine-print {
+      margin: 0;
+      color: #6b7280;
+      font-size: 12px;
+    }
+
+    .marketing-consents {
+      border-top: 1px solid rgba(14, 34, 56, 0.1);
+      padding-top: 9px;
+    }
+
+    .marketing-consents summary {
+      color: #4b5563;
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .marketing-consents summary::-webkit-details-marker { display: none; }
+    .marketing-consents summary::after { content: "+"; float: right; color: var(--teal); }
+    .marketing-consents[open] summary::after { content: "−"; }
+
+    .marketing-consent-content {
+      display: grid;
+      gap: 10px;
+      padding-top: 11px;
+    }
+
+    .about {
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .portrait-wrap { position: relative; }
+
+    .portrait-wrap img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: 58% center;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      display: block;
+    }
+
+    .nameplate {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 16px 34px rgba(14, 34, 56, 0.18);
+    }
+
+    .nameplate strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1.1rem;
+    }
+
+    .nameplate span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 4px;
+    }
+
+    .about-text h2 { margin-bottom: 22px; }
+
+    .feature-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .check {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: var(--teal);
+      color: var(--white);
+      font-weight: 900;
+    }
+
+    .feature strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+
+    .feature span { color: var(--muted); }
+
+    .process { background: #edf2f5; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .step {
+      padding: 28px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      min-height: 220px;
+    }
+
+    .step-number {
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 2.3rem;
+      line-height: 1;
+    }
+
+    .step h3 {
+      margin: 20px 0 10px;
+      color: var(--navy);
+      font-size: 1.2rem;
+    }
+
+    .step p { margin: 0; color: var(--muted); }
+
+    .blog {
+      background: var(--white);
+      border-top: 1px solid var(--line);
+    }
+
+    .blog-layout {
+      display: grid;
+      gap: 18px;
+    }
+
+    .blog-list {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 2px 2px 18px;
+      scrollbar-width: thin;
+    }
+
+    .blog-card {
+      flex: 0 0 min(390px, 86vw);
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+      scroll-snap-align: start;
+      overflow: hidden;
+    }
+
+    .blog-card img {
+      width: calc(100% + 48px);
+      height: 190px;
+      object-fit: cover;
+      display: block;
+      margin: -24px -24px 20px;
+      background: #dfe8ee;
+    }
+
+    .blog-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .blog-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .blog-controls {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .slider-button {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--navy);
+      font-weight: 900;
+      font-size: 1.15rem;
+    }
+
+    .contact {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .contact .container {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+      gap: 44px;
+      align-items: center;
+    }
+
+    .contact h2 { color: var(--white); }
+
+    .contact-panel {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      padding: 30px;
+    }
+
+    .contact-panel h3 { margin: 0; }
+    .contact-panel p { color: rgba(255, 255, 255, 0.78); margin-top: 12px; }
+
+    .contact-lines {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .contact-line {
+      padding: 14px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .contact-line span {
+      display: block;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .contact-line strong {
+      display: block;
+      color: var(--white);
+      font-size: 1.08rem;
+      overflow-wrap: anywhere;
+    }
+
+    .footer {
+      background: #091827;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.9rem;
+    }
+
+    .footer-main {
+      padding: 58px 0 46px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 34px;
+    }
+
+    .footer-column h3 {
+      margin: 0 0 18px;
+      color: var(--white);
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 160ms ease;
+    }
+
+    .footer-links a:hover { color: #f6d889; }
+
+    .footer-contact {
+      display: grid;
+      gap: 12px;
+    }
+
+    .footer-contact span {
+      display: block;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 3px;
+    }
+
+    .footer-contact strong {
+      color: var(--white);
+      overflow-wrap: anywhere;
+    }
+
+    .footer-trust {
+      padding: 30px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .trust-layout {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.5fr) minmax(0, 1.5fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .trust-copy h3 {
+      margin: 0 0 8px;
+      color: var(--white);
+      font-size: 1.16rem;
+    }
+
+    .trust-copy p { margin: 0; color: rgba(255, 255, 255, 0.62); }
+
+    .trust-badges {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .trust-badge {
+      min-height: 82px;
+      padding: 13px 16px;
+      border-radius: 8px;
+      background: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      text-align: center;
+    }
+
+    .trust-badge img {
+      display: block;
+      max-width: 150px;
+      max-height: 52px;
+      width: auto;
+      height: auto;
+    }
+
+    .ssl-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+    }
+
+    .ssl-mark svg {
+      width: 34px;
+      height: 34px;
+      stroke: var(--teal);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .agent-check {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .agent-check strong { color: var(--white); }
+    .agent-check a { color: #f6d889; font-weight: 800; }
+
+    .trust-note {
+      display: block;
+      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.46);
+      font-size: 0.76rem;
+    }
+
+    .footer-bottom {
+      padding: 22px 0;
+    }
+
+    .footer-bottom .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1020px) {
+      .nav-links a:not(.button) { display: none; }
+      .products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .detail-body,
+      .about-layout,
+      .blog-layout,
+      .contact .container { grid-template-columns: 1fr; }
+      .seo-copy { border-right: 0; border-bottom: 1px solid var(--line); }
+      .blog-editor { position: static; }
+      .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .trust-layout { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 920px) {
+      .nav { min-height: 68px; }
+      .hero {
+        background:
+          linear-gradient(180deg, rgba(14, 34, 56, 0.92) 0%, rgba(14, 34, 56, 0.76) 54%, rgba(14, 34, 56, 0.2) 100%),
+          url("radoslaw-lamk.jpg") center top / cover no-repeat;
+      }
+      .hero-inner { grid-template-columns: 1fr; align-items: end; padding-top: 96px; }
+      .section-heading { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .nav { width: min(100% - 22px, 1180px); }
+      .brand-mark { width: 38px; height: 38px; }
+      .brand-text span { display: none; }
+      .nav-links .button { min-height: 40px; padding: 0 12px; font-size: 0.9rem; }
+      .hero { min-height: 720px; }
+      .hero-inner { width: min(100% - 26px, 1180px); padding: 92px 0 32px; }
+      .trust-row { grid-template-columns: 1fr; margin-top: 34px; }
+      main section { padding: 62px 0; }
+      .container { width: min(100% - 26px, 1180px); }
+      .products-grid { grid-template-columns: 1fr; }
+      .product-card { min-height: 210px; }
+      .detail-head { grid-template-columns: 1fr; padding: 24px; }
+      .seo-copy, .quote-form-wrap { padding: 24px; }
+      .quote-form { grid-template-columns: 1fr; }
+      .portrait-wrap img { aspect-ratio: 1 / 1.1; }
+      .contact-panel { padding: 22px; }
+      .hero-actions .button { width: 100%; }
+      .footer-grid,
+      .trust-badges { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Główna nawigacja">
+      <a class="brand" href="#top" aria-label="LAMKUBEZPIECZENIA.pl">
+        <span class="brand-mark">L</span>
+        <span class="brand-text">
+          <strong>LAMKUBEZPIECZENIA.pl</strong>
+          <span>Radosław Lamk | Agent ubezpieczeniowy</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="#oferta">Oferta</a>
+        <a href="#blog">Blog</a>
+        <a href="#o-mnie">O mnie</a>
+        <a href="admin.html">Panel admin</a>
+        <a href="#kontakt" class="button">Bezpłatna konsultacja</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Radosław Lamk - agent ubezpieczeniowy">
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">Wszystkie towarzystwa ubezpieczeniowe w jednym miejscu</p>
+          <h1>Radosław Lamk</h1>
+          <p class="lead">Profesjonalny agent ubezpieczeniowy, który porównuje oferty, negocjuje specjalne zniżki i prowadzi klienta od wyboru polisy aż po pomoc przy likwidacji szkody.</p>
+          <div class="hero-actions">
+            <a class="button" href="#oferta">Oblicz ofertę</a>
+            <a class="button secondary" href="#blog">Poradnik ubezpieczeniowy</a>
+          </div>
+          <div class="trust-row" aria-label="Najważniejsze korzyści">
+            <div class="trust-item"><strong>Duża wiedza</strong><span>konkretne doradztwo bez chaosu</span></div>
+            <div class="trust-item"><strong>Specjalne zniżki</strong><span>szukanie najlepszej ceny i zakresu</span></div>
+            <div class="trust-item"><strong>Pełna opieka</strong><span>od wyboru po obsługę szkody</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="oferta">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Wybierz ubezpieczenie i wypełnij szybki formularz</h2>
+          <p>Kliknij interesujący Cię produkt. Poniżej pojawi się opis przygotowany pod SEO oraz formularz z pytaniami dopasowanymi do danego rodzaju ubezpieczenia.</p>
+        </div>
+        <div class="products-grid" id="productsGrid" aria-label="Rodzaje ubezpieczeń"></div>
+        <div class="insurance-detail" id="insuranceDetail" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="o-mnie" class="about">
+      <div class="container about-layout">
+        <div class="portrait-wrap">
+          <img src="radoslaw-lamk.jpg" alt="Radosław Lamk, agent ubezpieczeniowy LAMKUBEZPIECZENIA.pl" />
+          <div class="nameplate">
+            <strong>Radosław Lamk</strong>
+            <span>LAMKUBEZPIECZENIA.pl</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="eyebrow">Odpowiedzialne doradztwo</p>
+          <h2>Ubezpieczenie ma chronić, a nie tylko dobrze wyglądać w cenie.</h2>
+          <p>Pracuję z klientami na każdym etapie: od analizy potrzeb, przez wybór i zakup polisy, aż po wsparcie przy likwidacji szkód. Dzięki dostępowi do wielu towarzystw ubezpieczeniowych mogę dobrać rozwiązanie, które łączy dobry zakres, rozsądną składkę i realną pomoc wtedy, gdy pojawia się problem.</p>
+          <div class="feature-list">
+            <div class="feature"><span class="check">✓</span><div><strong>Porównanie wielu ofert</strong><span>Nie ograniczam się do jednej firmy. Sprawdzam warianty i tłumaczę różnice prostym językiem.</span></div></div>
+            <div class="feature"><span class="check">✓</span><div><strong>Specjalne zniżki</strong><span>Szukam korzystnych stawek i dopasowuję ochronę do budżetu klienta.</span></div></div>
+            <div class="feature"><span class="check">✓</span><div><strong>Pomoc po zakupie</strong><span>Polisa nie kończy relacji. W razie szkody pomagam przejść przez formalności.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Proces podobny do porównywarek, ale z opieką człowieka</h2>
+          <p>Formularz zbiera najważniejsze dane, a ja porównuję oferty, zakresy i zniżki. Dzięki temu klient otrzymuje konkretną rekomendację, a nie tylko przypadkową cenę.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><div class="step-number">01</div><h3>Wybór produktu</h3><p>Klient wybiera typ ubezpieczenia i podaje dane potrzebne do przygotowania kalkulacji.</p></article>
+          <article class="step"><div class="step-number">02</div><h3>Porównanie ofert</h3><p>Sprawdzam towarzystwa, zniżki, sumy ubezpieczenia, wyłączenia i warunki wypłaty.</p></article>
+          <article class="step"><div class="step-number">03</div><h3>Obsługa po zakupie</h3><p>Pomagam przy formalnościach, odnowieniach oraz zgłoszeniu i likwidacji szkód.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="blog">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Blog i poradnik ubezpieczeniowy</h2>
+          <p>Najnowsze wpisy publikowane z panelu administratora. Artykuły mogą mieć zdjęcie, kategorię i tagi, dzięki czemu podstrony produktowe pokazują tylko dedykowane treści.</p>
+        </div>
+        <div class="blog-layout">
+          <div class="blog-controls" aria-label="Sterowanie blogiem">
+            <button class="slider-button" type="button" data-blog-prev aria-label="Poprzednie wpisy">‹</button>
+            <button class="slider-button" type="button" data-blog-next aria-label="Następne wpisy">›</button>
+          </div>
+          <div class="blog-list" id="blogList"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="contact">
+      <div class="container">
+        <div>
+          <p class="eyebrow">LAMKUBEZPIECZENIA.pl</p>
+          <h2>Chcesz sprawdzić, czy Twoja polisa naprawdę Cię chroni?</h2>
+        </div>
+        <div class="contact-panel">
+          <h3>Skontaktuj się z Radosławem Lamkiem</h3>
+          <p>Dane kontaktowe możesz podmienić przed publikacją strony. Formularze ofertowe przygotowują treść wiadomości e-mail z informacjami od klienta.</p>
+          <div class="contact-lines">
+            <div class="contact-line"><span>Telefon</span><strong>+48 XXX XXX XXX</strong></div>
+            <div class="contact-line"><span>E-mail</span><strong>kontakt@lamkubezpieczenia.pl</strong></div>
+            <div class="contact-line"><span>Zakres</span><strong>Wszystkie towarzystwa ubezpieczeniowe</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="container footer-grid">
+        <div class="footer-column">
+          <h3>Ubezpieczenie</h3>
+          <ul class="footer-links">
+            <li><a href="#oferta">Ubezpieczenie komunikacyjne</a></li>
+            <li><a href="nieruchomosci.html">Ubezpieczenie nieruchomości</a></li>
+            <li><a href="#oferta">Ubezpieczenie na życie</a></li>
+            <li><a href="#oferta">Ubezpieczenie turystyczne</a></li>
+            <li><a href="#oferta">Ubezpieczenie firmy</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Serwis</h3>
+          <ul class="footer-links">
+            <li><a href="#kontakt">Jak zamówić ubezpieczenie</a></li>
+            <li><a href="regulamin.html">Regulamin serwisu</a></li>
+            <li><a href="polityka-prywatnosci.html">Polityka Ochrony Danych Osobowych</a></li>
+            <li><a href="#">Polityka Cookies</a></li>
+            <li><a href="#">Instrukcja dystrybucji produktów ubezpieczeniowych</a></li>
+            <li><a href="#">Przeciwdziałanie praniu pieniędzy oraz finansowaniu terroryzmu</a></li>
+            <li><a href="#">Rozpatrywanie reklamacji</a></li>
+            <li><a href="usuniecie-danych.html">Wycofanie zgód marketingowych</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>O nas</h3>
+          <ul class="footer-links">
+            <li><a href="#o-mnie">Radosław Lamk</a></li>
+            <li><a href="#o-mnie">Dlaczego warto nam zaufać</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Szybki kontakt</h3>
+          <div class="footer-contact">
+            <div><span>Telefon</span><strong>+48 XXX XXX XXX</strong></div>
+            <div><span>E-mail</span><strong>kontakt@lamkubezpieczenia.pl</strong></div>
+            <div><span>Obsługa klienta</span><strong>Radosław Lamk</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-trust">
+      <div class="container trust-layout">
+        <div class="trust-copy">
+          <h3>Możesz nam zaufać</h3>
+          <p>Transparentna obsługa, ochrona danych i możliwość weryfikacji agenta.</p>
+        </div>
+        <div>
+          <div class="trust-badges">
+            <a class="trust-badge" href="https://www.knf.gov.pl/" target="_blank" rel="noreferrer" aria-label="Komisja Nadzoru Finansowego">
+              <img src="https://www.knf.gov.pl/images/logo.webp" alt="Komisja Nadzoru Finansowego" loading="lazy" />
+            </a>
+            <a class="trust-badge" href="https://uodo.gov.pl/" target="_blank" rel="noreferrer" aria-label="Urząd Ochrony Danych Osobowych">
+              <img src="https://uodo.gov.pl/bundles/app/images/logo.svg" alt="Urząd Ochrony Danych Osobowych" loading="lazy" />
+            </a>
+            <div class="trust-badge">
+              <div class="ssl-mark">
+                <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="21" width="26" height="19" rx="3"/><path d="M17 21v-6a7 7 0 0 1 14 0v6"/><path d="M24 28v5"/></svg>
+                <span>Certyfikat SSL<br />po publikacji HTTPS</span>
+              </div>
+            </div>
+          </div>
+          <div class="agent-check">
+            <strong>Agencja Ubezpieczeniowa 4-Life Sp. z o.o.</strong><br />
+            NIP: <strong>9581679014</strong> · REGON: <strong>366854052</strong><br />
+            Numer agenta Agencji Ubezpieczeniowej 4-Life Sp. z o.o.: <strong>11234631/A</strong><br />
+            Radosław Lamk — osoba fizyczna wykonująca czynności agencyjne dla Agencji Ubezpieczeniowej 4-Life Sp. z o.o.<br />
+            Numer RAU Radosława Lamk: <strong>11458708/P</strong><br />
+            <a href="https://rpu.knf.gov.pl/" target="_blank" rel="noreferrer">Sprawdź agencję i osobę wykonującą czynności agencyjne w rejestrze KNF</a>.
+            <small class="trust-note">Odnośniki prowadzą do oficjalnych serwisów informacyjnych i nie oznaczają patronatu ani rekomendacji instytucji.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© 2026 LAMKUBEZPIECZENIA.pl | Radosław Lamk</span>
+        <span>Profesjonalne doradztwo ubezpieczeniowe</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const icons = {
+      car: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 28l4-10h20l4 10"/><path d="M8 28h32v10H8z"/><path d="M14 38v4M34 38v4"/><circle cx="16" cy="33" r="3"/><circle cx="32" cy="33" r="3"/><path d="M17 18l2-6h10l2 6"/></svg>',
+      home: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 23L24 10l16 13"/><path d="M13 21v19h22V21"/><path d="M20 40V28h8v12"/><path d="M32 14v-4h5v9"/></svg>',
+      life: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 39S10 30 10 19a8 8 0 0 1 14-5 8 8 0 0 1 14 5c0 11-14 20-14 20z"/><path d="M17 25h5l2-5 4 10 2-5h4"/></svg>',
+      travel: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 28l34-15-9 28-8-12-12 6-5-7z"/><path d="M24 29l17-16"/></svg>',
+      firm: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 40V12h16v28"/><path d="M26 21h12v19"/><path d="M15 18h5M15 25h5M15 32h5M31 27h3M31 34h3"/></svg>',
+      farm: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 39h32"/><path d="M12 39V23l12-9 12 9v16"/><path d="M18 39V27h12v12"/><path d="M15 17V9h6v4"/><path d="M9 28c5-4 10-4 15 0M24 28c5-4 10-4 15 0"/></svg>',
+      phone: '<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="16" y="6" width="16" height="36" rx="3"/><path d="M21 10h6M23 37h2"/><path d="M12 18l-4-4M36 18l4-4M12 30l-4 4M36 30l4 4"/></svg>',
+      gap: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 35h30"/><path d="M13 35V18l11-7 11 7v17"/><path d="M18 35V23h12v12"/><path d="M24 23v12"/><path d="M17 13l14 22"/></svg>',
+      health: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8l15 6v10c0 10-6 17-15 20C15 41 9 34 9 24V14l15-6z"/><path d="M24 17v14M17 24h14"/></svg>'
+    };
+
+    const commonFields = [
+      { label: 'Imię i nazwisko', name: 'name', type: 'text', required: true },
+      { label: 'Telefon', name: 'phone', type: 'tel', required: true },
+      { label: 'E-mail', name: 'email', type: 'email' }
+    ];
+
+    const products = [
+      {
+        id: 'komunikacyjne',
+        title: 'Ubezpieczenie komunikacyjne',
+        short: 'OC, AC, NNW, assistance i pakiety dla kierowców.',
+        icon: icons.car,
+        seoTitle: 'Ubezpieczenie samochodu OC i AC - porównanie ofert',
+        seo: [
+          'Ubezpieczenie komunikacyjne chroni kierowcę, pasażerów i pojazd w sytuacjach związanych z ruchem drogowym. Pomagam porównać OC, AC, NNW, assistance, szybę, opony oraz dodatkowe rozszerzenia, które mogą mieć znaczenie po kolizji, awarii lub kradzieży auta.',
+          'Dobra polisa samochodowa nie powinna być wybierana wyłącznie po cenie. Sprawdzam zakres ochrony, udział własny, amortyzację części, wariant naprawy, sumę ubezpieczenia i realne warunki likwidacji szkody.'
+        ],
+        benefits: ['Porównanie OC i AC w wielu towarzystwach', 'Dobór assistance do stylu jazdy', 'Pomoc przy odnowieniu i szkodzie'],
+        fields: [
+          { label: 'Marka pojazdu', name: 'brand', type: 'text', required: true },
+          { label: 'Model', name: 'model', type: 'text', required: true },
+          { label: 'Rok produkcji', name: 'year', type: 'number' },
+          { label: 'Pojemność silnika', name: 'engine', type: 'text' },
+          { label: 'Numer rejestracyjny', name: 'plate', type: 'text' },
+          { label: 'Rodzaj polisy', name: 'policy', type: 'select', options: ['OC', 'OC + AC', 'OC + AC + Assistance', 'NNW', 'Flota'] }
+        ]
+      },
+      {
+        id: 'nieruchomosci',
+        title: 'Ubezpieczenie nieruchomości',
+        short: 'Domy, mieszkania, mury, wyposażenie i OC w życiu prywatnym.',
+        icon: icons.home,
+        seoTitle: 'Ubezpieczenie domu i mieszkania - ochrona nieruchomości',
+        seo: [
+          'Ubezpieczenie nieruchomości zabezpiecza dom, mieszkanie, lokal lub budynek przed skutkami pożaru, zalania, przepięcia, kradzieży, dewastacji i innych zdarzeń losowych. Właściwie dobrany zakres obejmuje nie tylko mury, ale też stałe elementy, wyposażenie i odpowiedzialność cywilną w życiu prywatnym.',
+          'Pomagam dobrać sumę ubezpieczenia, sprawdzić limity odpowiedzialności i wyłączenia, a także dopasować ochronę do kredytu hipotecznego, wynajmu lub realnej wartości majątku.'
+        ],
+        benefits: ['Ochrona murów, elementów stałych i wyposażenia', 'OC w życiu prywatnym', 'Warianty pod kredyt, najem i dom jednorodzinny'],
+        fields: [
+          { label: 'Typ nieruchomości', name: 'propertyType', type: 'select', options: ['Mieszkanie', 'Dom', 'Dom w budowie', 'Lokal', 'Budynek gospodarczy'] },
+          { label: 'Miejscowość', name: 'city', type: 'text', required: true },
+          { label: 'Powierzchnia', name: 'area', type: 'number' },
+          { label: 'Rok budowy', name: 'builtYear', type: 'number' },
+          { label: 'Wartość nieruchomości', name: 'value', type: 'text' },
+          { label: 'Zakres', name: 'scope', type: 'select', options: ['Mury', 'Mury + elementy stałe', 'Pełny zakres z wyposażeniem', 'Pod kredyt'] }
+        ]
+      },
+      {
+        id: 'zycie',
+        title: 'Ubezpieczenie na życie',
+        short: 'Ochrona bliskich, zabezpieczenie kredytu i wsparcie w trudnych sytuacjach.',
+        icon: icons.life,
+        seoTitle: 'Ubezpieczenie na życie - ochrona rodziny i kredytu',
+        seo: [
+          'Ubezpieczenie na życie pomaga zabezpieczyć finansowo rodzinę, partnera lub kredyt w przypadku śmierci, poważnego zachorowania, wypadku albo niezdolności do pracy. Dobry wybór wymaga dopasowania sumy ubezpieczenia do zobowiązań i potrzeb bliskich.',
+          'Analizuję zakres ochrony, karencje, definicje chorób, wyłączenia i dodatki, aby polisa była zrozumiała oraz przydatna w realnych sytuacjach życiowych.'
+        ],
+        benefits: ['Dobór sumy ubezpieczenia do zobowiązań', 'Ochrona rodziny i kredytu', 'Analiza chorób, wypadków i karencji'],
+        fields: [
+          { label: 'Data urodzenia', name: 'birthDate', type: 'date', required: true },
+          { label: 'Cel polisy', name: 'goal', type: 'select', options: ['Ochrona rodziny', 'Zabezpieczenie kredytu', 'Poważne choroby', 'Wypadek', 'Polisa grupowa'] },
+          { label: 'Preferowana suma ubezpieczenia', name: 'sum', type: 'text' },
+          { label: 'Zawód', name: 'job', type: 'text' },
+          { label: 'Czy palisz papierosy?', name: 'smoking', type: 'select', options: ['Nie', 'Tak'] },
+          { label: 'Stan zdrowia lub ważne informacje', name: 'healthInfo', type: 'textarea', full: true }
+        ]
+      },
+      {
+        id: 'turystyczne',
+        title: 'Ubezpieczenie turystyczne',
+        short: 'Wyjazdy prywatne i służbowe, koszty leczenia, bagaż, assistance.',
+        icon: icons.travel,
+        seoTitle: 'Ubezpieczenie turystyczne - podróż, leczenie i assistance',
+        seo: [
+          'Ubezpieczenie turystyczne chroni podczas wyjazdu zagranicznego i krajowego. Obejmuje koszty leczenia, transport medyczny, assistance, NNW, bagaż, opóźnienie lotu oraz odpowiedzialność cywilną w podróży.',
+          'Dobieram polisę do kierunku, długości wyjazdu i aktywności. Innego zakresu potrzebuje rodzina na wakacjach, innego osoba jadąca służbowo, a jeszcze innego klient uprawiający sporty.'
+        ],
+        benefits: ['Koszty leczenia i transport medyczny', 'Ochrona bagażu i OC w podróży', 'Warianty dla sportów i pracy za granicą'],
+        fields: [
+          { label: 'Kraj wyjazdu', name: 'country', type: 'text', required: true },
+          { label: 'Data wyjazdu', name: 'startDate', type: 'date', required: true },
+          { label: 'Data powrotu', name: 'endDate', type: 'date', required: true },
+          { label: 'Liczba osób', name: 'people', type: 'number' },
+          { label: 'Cel podróży', name: 'purpose', type: 'select', options: ['Wypoczynek', 'Praca', 'Wyjazd służbowy', 'Sport', 'Narty'] },
+          { label: 'Dodatkowe aktywności', name: 'activities', type: 'textarea', full: true }
+        ]
+      },
+      {
+        id: 'firma',
+        title: 'Ubezpieczenie firmy',
+        short: 'OC działalności, majątek, floty, pracownicy i ryzyka branżowe.',
+        icon: icons.firm,
+        seoTitle: 'Ubezpieczenie firmy - OC działalności i majątek',
+        seo: [
+          'Ubezpieczenie firmy zabezpiecza działalność gospodarczą przed szkodami w majątku, odpowiedzialnością cywilną, przerwą w działalności, zdarzeniami losowymi oraz ryzykami zależnymi od branży. Zakres powinien wynikać z tego, czym firma realnie się zajmuje.',
+          'Pomagam dobrać OC działalności, ubezpieczenie lokalu, sprzętu, maszyn, floty, pracowników oraz kontraktów. Analizuję PKD, obroty, lokalizację i specyfikę wykonywanych usług.'
+        ],
+        benefits: ['OC działalności i ryzyka zawodowe', 'Ochrona sprzętu, lokalu i floty', 'Zakres dopasowany do branży i kontraktów'],
+        fields: [
+          { label: 'Nazwa firmy', name: 'company', type: 'text', required: true },
+          { label: 'NIP', name: 'nip', type: 'text' },
+          { label: 'Branża / PKD', name: 'industry', type: 'text', required: true },
+          { label: 'Roczny obrót', name: 'revenue', type: 'text' },
+          { label: 'Liczba pracowników', name: 'employees', type: 'number' },
+          { label: 'Potrzebny zakres', name: 'businessScope', type: 'select', options: ['OC działalności', 'Majątek firmy', 'Flota', 'Pracownicy', 'Pełny pakiet'] }
+        ]
+      },
+      {
+        id: 'rolne',
+        title: 'Ubezpieczenie rolne',
+        short: 'Budynki, uprawy, maszyny, OC rolnika i ochrona gospodarstwa.',
+        icon: icons.farm,
+        seoTitle: 'Ubezpieczenia rolne - gospodarstwo, OC rolnika i uprawy',
+        seo: [
+          'Ubezpieczenia rolne obejmują obowiązkowe OC rolnika, budynki gospodarstwa rolnego, maszyny, uprawy, zwierzęta i dodatkowe ryzyka związane z prowadzeniem gospodarstwa. Zakres powinien odpowiadać strukturze gospodarstwa i wartości majątku.',
+          'Pomagam sprawdzić obowiązkowe i dobrowolne polisy, dopasować sumy ubezpieczenia oraz wybrać ochronę przed skutkami zdarzeń pogodowych, pożaru, kradzieży i odpowiedzialności cywilnej.'
+        ],
+        benefits: ['OC rolnika i budynki gospodarcze', 'Ochrona maszyn, upraw i zwierząt', 'Dopasowanie do powierzchni i rodzaju produkcji'],
+        fields: [
+          { label: 'Powierzchnia gospodarstwa', name: 'farmArea', type: 'text', required: true },
+          { label: 'Miejscowość', name: 'farmCity', type: 'text' },
+          { label: 'Rodzaj produkcji', name: 'production', type: 'select', options: ['Roślinna', 'Zwierzęca', 'Mieszana', 'Sadownicza', 'Inna'] },
+          { label: 'Budynki do ubezpieczenia', name: 'buildings', type: 'textarea', full: true },
+          { label: 'Maszyny / pojazdy', name: 'machines', type: 'textarea', full: true }
+        ]
+      },
+      {
+        id: 'telefon',
+        title: 'Ubezpieczenie telefonu',
+        short: 'Ochrona urządzenia przed uszkodzeniem, kradzieżą i awarią.',
+        icon: icons.phone,
+        seoTitle: 'Ubezpieczenie telefonu - ekran, kradzież i awaria',
+        seo: [
+          'Ubezpieczenie telefonu pozwala ograniczyć koszty naprawy lub wymiany urządzenia po uszkodzeniu ekranu, zalaniu, kradzieży albo awarii. To rozwiązanie dla osób, które chcą chronić smartfon używany prywatnie lub służbowo.',
+          'Sprawdzam zakres ochrony, limity, udział własny, zasady serwisu oraz dokumenty potrzebne do zawarcia polisy i zgłoszenia szkody.'
+        ],
+        benefits: ['Ochrona ekranu, zalania i kradzieży', 'Warianty dla telefonu prywatnego i firmowego', 'Pomoc przy zgłoszeniu szkody'],
+        fields: [
+          { label: 'Marka telefonu', name: 'phoneBrand', type: 'text', required: true },
+          { label: 'Model', name: 'phoneModel', type: 'text', required: true },
+          { label: 'Wartość urządzenia', name: 'phoneValue', type: 'text' },
+          { label: 'Data zakupu', name: 'purchaseDate', type: 'date' },
+          { label: 'Zakres', name: 'phoneScope', type: 'select', options: ['Uszkodzenie ekranu', 'Kradzież', 'Awaria', 'Pełny zakres'] }
+        ]
+      },
+      {
+        id: 'gap',
+        title: 'Ubezpieczenie GAP',
+        short: 'Zabezpieczenie wartości pojazdu przy leasingu, kredycie lub zakupie.',
+        icon: icons.gap,
+        seoTitle: 'Ubezpieczenie GAP - ochrona wartości pojazdu',
+        seo: [
+          'Ubezpieczenie GAP chroni przed stratą finansową wynikającą ze spadku wartości pojazdu po szkodzie całkowitej lub kradzieży. Jest szczególnie ważne przy leasingu, kredycie, wynajmie długoterminowym i zakupie nowego lub młodego auta.',
+          'Pomagam dobrać wariant GAP do wartości fakturowej, rynkowej albo zobowiązania finansowego, aby klient wiedział, co otrzyma w trudnej sytuacji.'
+        ],
+        benefits: ['Ochrona przy szkodzie całkowitej i kradzieży', 'Warianty pod leasing, kredyt i wynajem', 'Analiza faktury, wartości i zobowiązania'],
+        fields: [
+          { label: 'Marka i model pojazdu', name: 'gapCar', type: 'text', required: true },
+          { label: 'Rok produkcji', name: 'gapYear', type: 'number' },
+          { label: 'Wartość fakturowa', name: 'invoiceValue', type: 'text', required: true },
+          { label: 'Forma finansowania', name: 'financeType', type: 'select', options: ['Leasing', 'Kredyt', 'Gotówka', 'Wynajem długoterminowy'] },
+          { label: 'Data zakupu / umowy', name: 'contractDate', type: 'date' }
+        ]
+      },
+      {
+        id: 'zdrowotne',
+        title: 'Ubezpieczenie zdrowotne',
+        short: 'Szybszy dostęp do lekarzy, badań i prywatnej opieki medycznej.',
+        icon: icons.health,
+        seoTitle: 'Ubezpieczenie zdrowotne - prywatna opieka medyczna',
+        seo: [
+          'Ubezpieczenie zdrowotne daje dostęp do prywatnych konsultacji lekarskich, badań diagnostycznych, telemedycyny i pakietów medycznych. Może być rozwiązaniem indywidualnym, rodzinnym albo pracowniczym.',
+          'Dobieram zakres do wieku, potrzeb medycznych, lokalizacji placówek, liczby osób i oczekiwanego poziomu opieki. Sprawdzam limity, karencje i dostępność specjalistów.'
+        ],
+        benefits: ['Prywatni lekarze i badania', 'Pakiety indywidualne, rodzinne i firmowe', 'Analiza limitów, karencji i placówek'],
+        fields: [
+          { label: 'Liczba osób', name: 'healthPeople', type: 'number', required: true },
+          { label: 'Wiek osób', name: 'ages', type: 'text' },
+          { label: 'Typ pakietu', name: 'healthType', type: 'select', options: ['Indywidualny', 'Rodzinny', 'Firmowy'] },
+          { label: 'Miasto korzystania z placówek', name: 'healthCity', type: 'text' },
+          { label: 'Najważniejsze potrzeby medyczne', name: 'medicalNeeds', type: 'textarea', full: true }
+        ]
+      }
+    ];
+
+    const productsGrid = document.querySelector('#productsGrid');
+    const insuranceDetail = document.querySelector('#insuranceDetail');
+    const recipientEmail = 'kontakt@lamkubezpieczenia.pl';
+    const consentFieldNames = new Set([
+      'privacy_accepted',
+      'marketing_email_consent',
+      'marketing_sms_consent',
+      'marketing_phone_consent'
+    ]);
+    const privacyValidationMessage = 'Aby wysłać formularz, zapoznaj się z Regulaminem oraz Polityką Prywatności.';
+
+    function buildConsentRecord(form, formType) {
+      const timestamp = new Date().toISOString();
+      return {
+        privacy_accepted: Boolean(form.elements.privacy_accepted?.checked),
+        marketing_email_consent: Boolean(form.elements.marketing_email_consent?.checked),
+        marketing_sms_consent: Boolean(form.elements.marketing_sms_consent?.checked),
+        marketing_phone_consent: Boolean(form.elements.marketing_phone_consent?.checked),
+        consent_timestamp: timestamp,
+        consent_ip: 'NIEDOSTĘPNY - wymaga bezpiecznego backendu',
+        consent_user_agent: navigator.userAgent,
+        consent_version: '1.0',
+        form_type: formType,
+        submitted_at: timestamp
+      };
+    }
+
+    function validatePrivacyConsent(form) {
+      const checkbox = form.querySelector('[data-privacy-consent]');
+      if (!checkbox) return true;
+      checkbox.setCustomValidity(checkbox.checked ? '' : privacyValidationMessage);
+      if (!checkbox.checked) checkbox.reportValidity();
+      return checkbox.checked;
+    }
+
+    function fieldHtml(field) {
+      const required = field.required ? ' required' : '';
+      const full = field.full || field.type === 'textarea' ? ' full' : '';
+      if (field.type === 'select') {
+        return `<div class="field${full}"><label for="${field.name}">${field.label}</label><select id="${field.name}" name="${field.label}"${required}>${field.options.map(option => `<option>${option}</option>`).join('')}</select></div>`;
+      }
+      if (field.type === 'textarea') {
+        return `<div class="field${full}"><label for="${field.name}">${field.label}</label><textarea id="${field.name}" name="${field.label}"${required}></textarea></div>`;
+      }
+      return `<div class="field${full}"><label for="${field.name}">${field.label}</label><input id="${field.name}" name="${field.label}" type="${field.type}"${required} /></div>`;
+    }
+
+    function legalConsentHtml() {
+      return `
+        <div class="legal-consent-block">
+          <label class="legal-check">
+            <input type="checkbox" name="privacy_accepted" value="true" required data-privacy-consent />
+            <span>Oświadczam, że zapoznałem(-am) się z <a href="regulamin.html" target="_blank">Regulaminem Serwisu</a> oraz <a href="polityka-prywatnosci.html" target="_blank">Polityką Prywatności</a> i przyjmuję ich treść do wiadomości.</span>
+          </label>
+          <p class="legal-fine-print">Wysłanie formularza stanowi żądanie przygotowania indywidualnej oferty ubezpieczeniowej. Administrator może kontaktować się z Tobą telefonicznie, SMS oraz e-mail w zakresie niezbędnym do realizacji zgłoszenia, przygotowania kalkulacji, przedstawienia oferty, uzupełnienia danych oraz udzielenia odpowiedzi na pytania.</p>
+          <details class="marketing-consents">
+            <summary>Opcjonalne zgody marketingowe</summary>
+            <div class="marketing-consent-content">
+              <label class="legal-check">
+                <input type="checkbox" name="marketing_email_consent" value="true" />
+                <span>Wyrażam zgodę na otrzymywanie od Radosława Lamk informacji handlowych, ofert, promocji, porad, przypomnień oraz propozycji dotyczących produktów i usług ubezpieczeniowych za pośrednictwem poczty elektronicznej na wskazany przeze mnie adres e-mail.</span>
+              </label>
+              <label class="legal-check">
+                <input type="checkbox" name="marketing_sms_consent" value="true" />
+                <span>Wyrażam zgodę na otrzymywanie od Radosława Lamk informacji handlowych, ofert, promocji, porad, przypomnień oraz propozycji dotyczących produktów i usług ubezpieczeniowych za pomocą wiadomości SMS/MMS na wskazany przeze mnie numer telefonu.</span>
+              </label>
+              <label class="legal-check">
+                <input type="checkbox" name="marketing_phone_consent" value="true" />
+                <span>Wyrażam zgodę na kontakt telefoniczny od Radosława Lamk w celach marketingowych, w tym w celu przedstawiania informacji handlowych, ofert, promocji, porad, przypomnień oraz propozycji dotyczących produktów i usług ubezpieczeniowych.</span>
+              </label>
+              <p class="legal-fine-print">Wyrażenie zgód marketingowych jest dobrowolne i nie jest wymagane do uzyskania oferty ubezpieczeniowej. Zgody można wycofać w dowolnym momencie poprzez kontakt na adres: kontakt@lamkubezpieczenia.pl. Wycofanie zgody nie wpływa na zgodność z prawem działań dokonanych przed jej wycofaniem.</p>
+            </div>
+          </details>
+        </div>
+      `;
+    }
+
+    function renderCards() {
+      productsGrid.innerHTML = products.map(product => `
+        <button class="product-card" type="button" data-product="${product.id}" aria-label="Otwórz ${product.title}">
+          <div class="product-top">
+            <span class="product-graphic">${product.icon}</span>
+          </div>
+          <div>
+            <h3>${product.title}</h3>
+            <p>${product.short}</p>
+            <span class="mini-link">Opis i formularz →</span>
+          </div>
+        </button>
+      `).join('');
+    }
+
+    function renderDetail(id) {
+      const product = products.find(item => item.id === id) || products[0];
+      document.querySelectorAll('.product-card').forEach(card => {
+        card.classList.toggle('is-active', card.dataset.product === product.id);
+      });
+      const fields = [...commonFields, ...product.fields, { label: 'Dodatkowe informacje', name: 'notes', type: 'textarea', full: true }];
+      insuranceDetail.innerHTML = `
+        <div class="detail-head">
+          <div>
+            <p class="eyebrow">Opis SEO i szybka kalkulacja</p>
+            <h3>${product.seoTitle}</h3>
+            <p>${product.short} Wypełnij formularz, a przygotuję porównanie ofert i rekomendację zakresu ochrony.</p>
+          </div>
+          <div class="detail-visual">${product.icon}</div>
+        </div>
+        <div class="detail-body">
+          <div class="seo-copy">
+            <h4>Co obejmuje ${product.title.toLowerCase()}?</h4>
+            ${product.seo.map(paragraph => `<p>${paragraph}</p>`).join('')}
+            <ul class="benefits">${product.benefits.map(item => `<li>${item}</li>`).join('')}</ul>
+          </div>
+          <div class="quote-form-wrap">
+            <h4>Formularz do przygotowania oferty</h4>
+            <form class="quote-form" data-form-title="${product.title}" novalidate>
+              ${fields.map(fieldHtml).join('')}
+              <p class="form-note">Dane zostaną bezpiecznie zapisane i przekazane agentowi do przygotowania oferty.</p>
+              ${legalConsentHtml()}
+              <div class="form-actions">
+                <button class="button dark" type="submit">Wyślij zapytanie</button>
+                <span class="form-status" role="status"></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      `;
+      history.replaceState(null, '', `#${product.id}`);
+    }
+
+    productsGrid.addEventListener('click', event => {
+      const card = event.target.closest('[data-product]');
+      if (!card) return;
+      if (card.dataset.product === 'nieruchomosci') {
+        window.location.href = 'nieruchomosci.html';
+        return;
+      }
+      renderDetail(card.dataset.product);
+      insuranceDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    insuranceDetail.addEventListener('submit', async event => {
+      const form = event.target.closest('.quote-form');
+      if (!form) return;
+      event.preventDefault();
+      if (!validatePrivacyConsent(form)) return;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      const data = new FormData(form);
+      const formData = {};
+      for (const [key, value] of data.entries()) {
+        if (!value || consentFieldNames.has(key)) continue;
+        if (formData[key]) formData[key] = Array.isArray(formData[key]) ? [...formData[key], value] : [formData[key], value];
+        else formData[key] = value;
+      }
+      const consentRecord = buildConsentRecord(form, form.dataset.formTitle);
+      const status = form.querySelector('.form-status');
+      const submitButton = form.querySelector('[type="submit"]');
+      status.textContent = 'Bezpiecznie zapisuję zgłoszenie...';
+      submitButton.disabled = true;
+      try {
+        const response = await fetch('/api/submissions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ form_type: form.dataset.formTitle, data: formData, consents: consentRecord })
+        });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || 'Nie udało się wysłać formularza.');
+        form.reset();
+        status.textContent = `Dziękuję. Zgłoszenie nr ${result.submission_id} zostało bezpiecznie zapisane.`;
+      } catch (error) {
+        status.textContent = location.protocol === 'file:'
+          ? 'Formularz działa po uruchomieniu strony przez bezpieczny serwer.'
+          : error.message;
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+
+    insuranceDetail.addEventListener('change', event => {
+      if (event.target.matches('[data-privacy-consent]') && event.target.checked) {
+        event.target.setCustomValidity('');
+      }
+    });
+
+    const starterPosts = [
+      {
+        title: 'OC i AC - czym kierować się przy wyborze polisy?',
+        category: 'Komunikacja',
+        tags: ['komunikacyjne'],
+        image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520"%3E%3Crect width="900" height="520" fill="%23e8f3f3"/%3E%3Cpath d="M160 330l55-125h320l65 125" fill="none" stroke="%230e2238" stroke-width="22" stroke-linecap="round"/%3E%3Crect x="130" y="315" width="590" height="90" rx="18" fill="%231f5f9f"/%3E%3Ccircle cx="245" cy="405" r="44" fill="%230e2238"/%3E%3Ccircle cx="595" cy="405" r="44" fill="%230e2238"/%3E%3Ctext x="90" y="120" font-family="Arial" font-size="48" font-weight="700" fill="%230e2238"%3EOC i AC%3C/text%3E%3C/svg%3E',
+        date: '2026-06-12',
+        content: 'Cena jest ważna, ale przy AC warto sprawdzić wariant naprawy, udział własny, amortyzację części i zakres assistance. To właśnie te elementy decydują, czy polisa pomoże po szkodzie.'
+      },
+      {
+        title: 'Ubezpieczenie mieszkania - mury to nie wszystko',
+        category: 'Nieruchomości',
+        tags: ['nieruchomosci'],
+        image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520"%3E%3Crect width="900" height="520" fill="%23f9f3e5"/%3E%3Cpath d="M170 265L450 95l280 170" fill="none" stroke="%230e2238" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/%3E%3Cpath d="M230 250v170h440V250" fill="%23ffffff" stroke="%231f5f9f" stroke-width="18" stroke-linejoin="round"/%3E%3Cpath d="M390 420V300h120v120" fill="%23e8f3f3" stroke="%230e2238" stroke-width="16"/%3E%3Ctext x="90" y="120" font-family="Arial" font-size="46" font-weight="700" fill="%230e2238"%3EUbezpieczenie domu%3C/text%3E%3C/svg%3E',
+        date: '2026-06-12',
+        content: 'Dobra ochrona mieszkania powinna obejmować elementy stałe, wyposażenie, OC w życiu prywatnym i ryzyka takie jak zalanie, pożar, przepięcie czy kradzież.'
+      },
+      {
+        title: 'Dlaczego warto mieć pomoc agenta przy likwidacji szkody?',
+        category: 'Porady',
+        tags: ['porady', 'nieruchomosci'],
+        image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520"%3E%3Crect width="900" height="520" fill="%23edf2f5"/%3E%3Crect x="190" y="120" width="520" height="310" rx="22" fill="%23ffffff" stroke="%230e2238" stroke-width="18"/%3E%3Cpath d="M280 230h340M280 300h240M280 365h180" stroke="%231f5f9f" stroke-width="22" stroke-linecap="round"/%3E%3Cpath d="M645 385l55 55 110-130" fill="none" stroke="%230f8b8d" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/%3E%3Ctext x="90" y="80" font-family="Arial" font-size="44" font-weight="700" fill="%230e2238"%3EPomoc przy szkodzie%3C/text%3E%3C/svg%3E',
+        date: '2026-06-12',
+        content: 'Agent pomaga uporządkować dokumenty, sprawdzić zakres ochrony i przejść przez formalności. To szczególnie ważne, kiedy szkoda jest stresująca lub wymaga kontaktu z ubezpieczycielem.'
+      }
+    ];
+
+    const blogList = document.querySelector('#blogList');
+    const blogPrev = document.querySelector('[data-blog-prev]');
+    const blogNext = document.querySelector('[data-blog-next]');
+
+    async function getPosts() {
+      try {
+        const response = await fetch('/api/posts');
+        if (response.ok) {
+          const result = await response.json();
+          if (result.posts.length) return result.posts.map(post => ({ ...post, date: post.published_at.slice(0, 10) }));
+        }
+      } catch {}
+      const saved = localStorage.getItem('lamkBlogPosts');
+      return saved ? JSON.parse(saved) : starterPosts;
+    }
+
+    async function renderBlog() {
+      const posts = await getPosts();
+      blogList.innerHTML = posts.map(post => `
+        <article class="blog-card">
+          <img src="${post.image || starterPosts[0].image}" alt="${post.title}" />
+          <div class="blog-meta"><span>${post.category}</span><span>${post.date}</span><span>${(post.tags || []).join(', ')}</span></div>
+          <h3>${post.title}</h3>
+          <p>${post.content}</p>
+        </article>
+      `).join('');
+    }
+
+    blogPrev.addEventListener('click', () => blogList.scrollBy({ left: -420, behavior: 'smooth' }));
+    blogNext.addEventListener('click', () => blogList.scrollBy({ left: 420, behavior: 'smooth' }));
+
+    renderCards();
+    const initialId = location.hash.replace('#', '');
+    renderDetail(products.some(product => product.id === initialId) ? initialId : products[0].id);
+    renderBlog();
+  </script>
+</body>
+</html>

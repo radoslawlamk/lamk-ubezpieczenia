@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index, follow" />
+  <title>Regulamin serwisu | LAMKUBEZPIECZENIA.pl</title>
+  <meta name="description" content="Regulamin korzystania z serwisu internetowego LAMKUBEZPIECZENIA.pl." />
+  <style>
+    :root {
+      --navy: #0e2238;
+      --teal: #0f8b8d;
+      --gold: #c69a3b;
+      --ink: #17202b;
+      --muted: #607085;
+      --paper: #f7f8fa;
+      --white: #ffffff;
+      --line: rgba(14, 34, 56, 0.13);
+      --shadow: 0 18px 44px rgba(14, 34, 56, 0.1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav,
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--navy), var(--teal));
+      border-radius: 8px;
+    }
+
+    .brand strong { display: block; color: var(--navy); line-height: 1.1; }
+    .brand span span { color: var(--muted); font-size: 0.86rem; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 8px;
+      background: var(--gold);
+      color: #111827;
+      font-weight: 800;
+      border: 1px solid rgba(91, 67, 15, 0.12);
+    }
+
+    .page-hero {
+      padding: 74px 0 66px;
+      color: var(--white);
+      background: linear-gradient(135deg, #0e2238, #105b6a);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: #f6d889;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .page-hero p:last-child {
+      max-width: 720px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1.08rem;
+    }
+
+    main { padding: 64px 0 82px; }
+
+    .document {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 34px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .document-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .document-content {
+      padding-top: 28px;
+    }
+
+    .document-content h2 {
+      margin: 30px 0 12px;
+      color: var(--navy);
+      font-size: 1.35rem;
+    }
+
+    .document-content p,
+    .document-content li { color: #435267; }
+
+    .document-content ul,
+    .document-content ol {
+      margin: 12px 0 20px;
+      padding-left: 24px;
+    }
+
+    .document-content li { margin-bottom: 7px; }
+
+    .document-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 18px;
+    }
+
+    .company-details {
+      margin: 18px 0;
+      padding: 20px;
+      border-left: 4px solid var(--teal);
+      border-radius: 8px;
+      background: #f2f7f8;
+      color: #34465b;
+    }
+
+    .company-details strong {
+      color: var(--navy);
+    }
+
+    .legal-note {
+      padding: 16px 18px;
+      border-radius: 8px;
+      background: #f8f4e9;
+      border: 1px solid rgba(198, 154, 59, 0.28);
+    }
+
+    .footer {
+      background: #091827;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.9rem;
+    }
+    .footer-main { padding: 58px 0 46px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 34px; }
+    .footer-column h3 { margin: 0 0 18px; color: var(--white); font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .footer-links { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .footer-links a { color: rgba(255, 255, 255, 0.7); }
+    .footer-links a:hover { color: #f6d889; }
+    .footer-contact { display: grid; gap: 12px; }
+    .footer-contact span { display: block; color: rgba(255, 255, 255, 0.5); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 3px; }
+    .footer-contact strong { color: var(--white); overflow-wrap: anywhere; }
+    .footer-trust { padding: 30px 0; border-top: 1px solid rgba(255, 255, 255, 0.12); border-bottom: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.025); }
+    .trust-layout { display: grid; grid-template-columns: minmax(180px, 0.5fr) minmax(0, 1.5fr); gap: 28px; align-items: center; }
+    .trust-copy h3 { margin: 0 0 8px; color: var(--white); font-size: 1.16rem; }
+    .trust-copy p { margin: 0; color: rgba(255, 255, 255, 0.62); }
+    .trust-badges { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .trust-badge { min-height: 82px; padding: 13px 16px; border-radius: 8px; background: var(--white); display: flex; align-items: center; justify-content: center; color: var(--navy); text-align: center; }
+    .trust-badge img { display: block; max-width: 150px; max-height: 52px; width: auto; height: auto; }
+    .ssl-mark { display: flex; align-items: center; gap: 10px; font-weight: 900; }
+    .ssl-mark svg { width: 34px; height: 34px; stroke: var(--teal); fill: none; stroke-width: 2; }
+    .agent-check { margin-top: 16px; padding: 14px 16px; border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 8px; color: rgba(255, 255, 255, 0.72); }
+    .agent-check strong { color: var(--white); }
+    .agent-check a { color: #f6d889; font-weight: 800; }
+    .trust-note { display: block; margin-top: 10px; color: rgba(255, 255, 255, 0.46); font-size: 0.76rem; }
+    .footer-bottom { padding: 22px 0; }
+    .footer-bottom .container { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+
+    @media (max-width: 920px) {
+      .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .trust-layout { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .brand span span { display: none; }
+      .document { padding: 22px; }
+      .footer-grid,
+      .trust-badges { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Główna nawigacja">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">L</span>
+        <span><strong>LAMKUBEZPIECZENIA.pl</strong><span>Radosław Lamk | Agent ubezpieczeniowy</span></span>
+      </a>
+      <a class="button" href="index.html">Wróć na stronę główną</a>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Dokumenty serwisu</p>
+      <h1>Regulamin serwisu</h1>
+      <p>Zasady korzystania z serwisu LAMKUBEZPIECZENIA.pl oraz składania zapytań o produkty ubezpieczeniowe.</p>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <article class="document">
+        <div class="document-meta">
+          <span>LAMKUBEZPIECZENIA.pl</span>
+          <span>Data publikacji: 14 czerwca 2026 r.</span>
+        </div>
+        <div class="document-actions">
+          <a class="button" href="regulamin-lamkubezpieczenia.pdf" download>Pobierz regulamin PDF</a>
+        </div>
+        <div class="document-content" id="regulamin-content">
+          <h2>§ 1. Postanowienia ogólne</h2>
+          <ol>
+            <li>Niniejszy Regulamin określa zasady korzystania z serwisu internetowego LAMKUBEZPIECZENIA.PL, w szczególności zasady korzystania z formularzy kontaktowych służących do składania zapytań dotyczących produktów ubezpieczeniowych oraz usług świadczonych za pośrednictwem Serwisu.</li>
+            <li>
+              Właścicielem Serwisu oraz podmiotem świadczącym usługi drogą elektroniczną jest:
+              <div class="company-details">
+                <strong>RADOSŁAW LAMK</strong><br />
+                prowadzący działalność gospodarczą pod firmą:<br />
+                <strong>RADOSŁAW LAMK</strong><br />
+                1. AGENCJA EVENTOWA SHOWART<br />
+                2. AGENCJA MARKETINGOWA<br />
+                3. MULTIAGENCJA UBEZPIECZENIOWA<br /><br />
+                NIP: 9581673589<br />
+                REGON: 364352369<br />
+                Adres: ul. Gniewska 15/34, 81-047 Gdynia<br />
+                e-mail: kontakt@lamkubezpieczenia.pl<br />
+                tel.: 690 532 670<br />
+                Serwis internetowy: https://lamkubezpieczenia.pl
+              </div>
+            </li>
+            <li>Właściciel Serwisu jest administratorem danych osobowych przetwarzanych za pośrednictwem Serwisu, chyba że z treści odrębnych informacji wynika inaczej.</li>
+            <li>Serwis działa zgodnie z obowiązującymi przepisami prawa Rzeczypospolitej Polskiej.</li>
+          </ol>
+
+          <h2>§ 2. Status pośrednika ubezpieczeniowego</h2>
+          <ol>
+            <li>Radosław Lamk wykonuje czynności agencyjne jako OFWCA (Osoba Fizyczna Wykonująca Czynności Agencyjne) zgodnie z obowiązującymi przepisami prawa.</li>
+            <li>
+              Czynności wykonywane są w ramach współpracy z:
+              <div class="company-details">
+                <strong>Agencja Ubezpieczeniowa 4-Life Sp. z o.o.</strong><br />
+                NIP: 9581679014<br />
+                REGON: 366854052<br />
+                Numer agenta Agencji Ubezpieczeniowej 4-Life Sp. z o.o.: 11234631/A<br />
+                Numer RAU Radosława Lamk: 11458708/P
+              </div>
+            </li>
+            <li>Informacje o wpisie do Rejestru Pośredników Ubezpieczeniowych dostępne są pod adresem: <a href="https://rpu.knf.gov.pl/" target="_blank" rel="noreferrer"><strong>https://rpu.knf.gov.pl</strong></a>.</li>
+          </ol>
+
+          <h2>§ 3. Charakter Serwisu</h2>
+          <ol>
+            <li>Serwis ma charakter informacyjny oraz umożliwia składanie zapytań dotyczących produktów ubezpieczeniowych.</li>
+            <li>Za pośrednictwem Serwisu użytkownik może przesłać dane niezbędne do:
+              <ul>
+                <li>przygotowania kalkulacji,</li>
+                <li>przygotowania oferty ubezpieczeniowej,</li>
+                <li>przedstawienia propozycji ochrony,</li>
+                <li>uzyskania kontaktu z pośrednikiem,</li>
+                <li>uzyskania odpowiedzi dotyczącej produktów ubezpieczeniowych.</li>
+              </ul>
+            </li>
+            <li>Serwis nie stanowi automatycznej porównywarki cen ani systemu automatycznego zawierania umów ubezpieczenia.</li>
+            <li>Każde zgłoszenie analizowane jest indywidualnie.</li>
+          </ol>
+
+          <h2>§ 4. Formularze</h2>
+          <ol>
+            <li>Serwis może udostępniać formularze dotyczące między innymi:
+              <ul>
+                <li>ubezpieczeń komunikacyjnych,</li>
+                <li>ubezpieczeń nieruchomości,</li>
+                <li>ubezpieczeń na życie,</li>
+                <li>ubezpieczeń turystycznych,</li>
+                <li>ubezpieczeń firm,</li>
+                <li>ubezpieczeń rolnych,</li>
+                <li>ubezpieczeń telefonów,</li>
+                <li>ubezpieczeń GAP,</li>
+                <li>ubezpieczeń zdrowotnych,</li>
+                <li>ubezpieczeń NNW,</li>
+                <li>innych produktów oferowanych przez współpracujące zakłady ubezpieczeń.</li>
+              </ul>
+            </li>
+            <li>Zakres wymaganych danych zależy od rodzaju produktu.</li>
+            <li>Dane mogą obejmować między innymi:
+              <ul>
+                <li>imię i nazwisko,</li>
+                <li>numer telefonu,</li>
+                <li>adres e-mail,</li>
+                <li>adres zamieszkania,</li>
+                <li>PESEL,</li>
+                <li>datę urodzenia,</li>
+                <li>dane pojazdu,</li>
+                <li>dane nieruchomości,</li>
+                <li>dane przedsiębiorstwa,</li>
+                <li>dane współwłaścicieli,</li>
+                <li>informacje dotyczące przebiegu ubezpieczenia,</li>
+                <li>informacje o szkodach,</li>
+                <li>informacje dotyczące stanu zdrowia w zakresie niezbędnym do przygotowania oferty,</li>
+                <li>inne dane wymagane przez zakłady ubezpieczeń.</li>
+              </ul>
+            </li>
+            <li>Użytkownik zobowiązuje się przekazywać dane prawdziwe, kompletne i aktualne.</li>
+          </ol>
+
+          <h2>§ 5. Kontakt z Użytkownikiem</h2>
+          <ol>
+            <li>Przesłanie formularza oznacza żądanie podjęcia działań zmierzających do przygotowania i przedstawienia oferty ubezpieczeniowej.</li>
+            <li>W celu realizacji zgłoszenia Administrator może kontaktować się z Użytkownikiem:
+              <ul>
+                <li>telefonicznie,</li>
+                <li>za pomocą wiadomości SMS,</li>
+                <li>za pomocą poczty elektronicznej,</li>
+                <li>w inny uzgodniony sposób.</li>
+              </ul>
+            </li>
+            <li>Kontakt może obejmować w szczególności:
+              <ul>
+                <li>uzupełnienie brakujących informacji,</li>
+                <li>wyjaśnienie danych,</li>
+                <li>przedstawienie oferty,</li>
+                <li>poinformowanie o przygotowaniu kalkulacji,</li>
+                <li>omówienie zakresu ochrony,</li>
+                <li>przekazanie dokumentów,</li>
+                <li>odpowiedzi na pytania użytkownika.</li>
+              </ul>
+            </li>
+            <li>Jeżeli realizacja zgłoszenia nie jest możliwa bez możliwości kontaktu z użytkownikiem, brak niezbędnych danych kontaktowych lub brak możliwości ich wykorzystania uniemożliwia przygotowanie i przedstawienie oferty.</li>
+          </ol>
+
+          <h2>§ 6. Czas realizacji</h2>
+          <ol>
+            <li>Zapytania realizowane są według kolejności wpływu.</li>
+            <li>Administrator dokłada należytej staranności, aby odpowiedzi były udzielane możliwie najszybciej.</li>
+            <li>Standardowy czas obsługi wynosi od kilku minut do 48 godzin od otrzymania kompletnego zgłoszenia.</li>
+            <li>W przypadkach wymagających dodatkowych ustaleń termin może ulec wydłużeniu.</li>
+          </ol>
+
+          <h2>§ 7. Dane osób trzecich</h2>
+          <ol>
+            <li>Jeżeli użytkownik przekazuje dane innych osób, w tym współwłaścicieli pojazdów lub innych osób objętych ochroną ubezpieczeniową, oświadcza, że jest uprawniony do przekazania tych danych zgodnie z obowiązującymi przepisami prawa.</li>
+            <li>Użytkownik ponosi odpowiedzialność za zgodność przekazania danych z obowiązującymi przepisami.</li>
+          </ol>
+
+          <h2>§ 8. Odpowiedzialność</h2>
+          <ol>
+            <li>Oferty przygotowywane są na podstawie danych przekazanych przez użytkownika.</li>
+            <li>Podanie nieprawdziwych lub niepełnych informacji może skutkować zmianą warunków oferty albo brakiem możliwości jej przygotowania.</li>
+            <li>Ostateczne warunki ochrony ustalane są przez właściwy zakład ubezpieczeń zgodnie z obowiązującymi przepisami oraz wewnętrznymi zasadami oceny ryzyka.</li>
+          </ol>
+
+          <h2>§ 9. Własność intelektualna</h2>
+          <ol>
+            <li>Wszelkie elementy Serwisu, w szczególności:
+              <ul>
+                <li>teksty,</li>
+                <li>grafiki,</li>
+                <li>logotypy,</li>
+                <li>układ strony,</li>
+                <li>materiały marketingowe,</li>
+              </ul>
+              podlegają ochronie prawnej.
+            </li>
+            <li>Ich kopiowanie lub rozpowszechnianie bez zgody właściciela jest zabronione, z wyjątkiem przypadków przewidzianych przez przepisy prawa.</li>
+          </ol>
+
+          <h2>§ 10. Reklamacje</h2>
+          <ol>
+            <li>Reklamacje dotyczące funkcjonowania Serwisu można zgłaszać:
+              <ul>
+                <li>pocztą elektroniczną na adres: kontakt@lamkubezpieczenia.pl,</li>
+                <li>pisemnie na adres siedziby przedsiębiorcy.</li>
+              </ul>
+            </li>
+            <li>Reklamacja powinna zawierać opis zgłaszanego problemu oraz dane umożliwiające kontakt.</li>
+            <li>Reklamacje rozpatrywane są bez zbędnej zwłoki.</li>
+          </ol>
+
+          <h2>§ 11. Ochrona danych osobowych</h2>
+          <ol>
+            <li>Zasady przetwarzania danych osobowych określa Polityka Prywatności dostępna w Serwisie.</li>
+            <li>Szczegółowe informacje dotyczące podstaw prawnych przetwarzania, okresów przechowywania danych, praw osób, których dane dotyczą, oraz zasad realizacji tych praw zostały opisane w Polityce Prywatności.</li>
+          </ol>
+
+          <h2>§ 12. Pliki cookies</h2>
+          <ol>
+            <li>Serwis może wykorzystywać pliki cookies oraz podobne technologie.</li>
+            <li>Szczegółowe informacje dotyczące zasad ich wykorzystywania zawiera Polityka Cookies.</li>
+          </ol>
+
+          <h2>§ 13. Postanowienia końcowe</h2>
+          <ol>
+            <li>Regulamin obowiązuje od dnia jego opublikowania.</li>
+            <li>Administrator zastrzega sobie możliwość zmiany Regulaminu w przypadku:
+              <ul>
+                <li>zmiany przepisów prawa,</li>
+                <li>zmiany zakresu świadczonych usług,</li>
+                <li>zmian technologicznych,</li>
+                <li>zmian organizacyjnych.</li>
+              </ul>
+            </li>
+            <li>W sprawach nieuregulowanych zastosowanie mają przepisy prawa polskiego, w szczególności:
+              <ul>
+                <li>Kodeks cywilny,</li>
+                <li>ustawa o dystrybucji ubezpieczeń,</li>
+                <li>RODO,</li>
+                <li>ustawa o świadczeniu usług drogą elektroniczną,</li>
+                <li>Prawo komunikacji elektronicznej,</li>
+                <li>inne powszechnie obowiązujące przepisy prawa.</li>
+              </ul>
+            </li>
+            <li>Regulamin podlega prawu polskiemu.</li>
+          </ol>
+
+          <p class="legal-note">Treść powyżej została opublikowana na podstawie dokumentu „Regulamin Serwisu Internetowego Lamkubezpieczenia.pl.pdf”. Wersja PDF jest dostępna do pobrania na początku strony.</p>
+        </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="container footer-grid">
+        <div class="footer-column">
+          <h3>Ubezpieczenie</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#oferta">Ubezpieczenie komunikacyjne</a></li>
+            <li><a href="nieruchomosci.html">Ubezpieczenie nieruchomości</a></li>
+            <li><a href="index.html#oferta">Ubezpieczenie na życie</a></li>
+            <li><a href="index.html#oferta">Ubezpieczenie turystyczne</a></li>
+            <li><a href="index.html#oferta">Ubezpieczenie firmy</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Serwis</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#kontakt">Jak zamówić ubezpieczenie</a></li>
+            <li><a href="regulamin.html">Regulamin serwisu</a></li>
+            <li><a href="polityka-prywatnosci.html">Polityka Ochrony Danych Osobowych</a></li>
+            <li><a href="#">Polityka Cookies</a></li>
+            <li><a href="#">Instrukcja dystrybucji produktów ubezpieczeniowych</a></li>
+            <li><a href="#">Przeciwdziałanie praniu pieniędzy oraz finansowaniu terroryzmu</a></li>
+            <li><a href="#">Rozpatrywanie reklamacji</a></li>
+            <li><a href="usuniecie-danych.html">Wycofanie zgód marketingowych</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>O nas</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#o-mnie">Radosław Lamk</a></li>
+            <li><a href="index.html#o-mnie">Dlaczego warto nam zaufać</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
+            <li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Szybki kontakt</h3>
+          <div class="footer-contact">
+            <div><span>Telefon</span><strong>+48 XXX XXX XXX</strong></div>
+            <div><span>E-mail</span><strong>kontakt@lamkubezpieczenia.pl</strong></div>
+            <div><span>Obsługa klienta</span><strong>Radosław Lamk</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-trust">
+      <div class="container trust-layout">
+        <div class="trust-copy">
+          <h3>Możesz nam zaufać</h3>
+          <p>Transparentna obsługa, ochrona danych i możliwość weryfikacji agenta.</p>
+        </div>
+        <div>
+          <div class="trust-badges">
+            <a class="trust-badge" href="https://www.knf.gov.pl/" target="_blank" rel="noreferrer"><img src="https://www.knf.gov.pl/images/logo.webp" alt="Komisja Nadzoru Finansowego" loading="lazy" /></a>
+            <a class="trust-badge" href="https://uodo.gov.pl/" target="_blank" rel="noreferrer"><img src="https://uodo.gov.pl/bundles/app/images/logo.svg" alt="Urząd Ochrony Danych Osobowych" loading="lazy" /></a>
+            <div class="trust-badge"><div class="ssl-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="21" width="26" height="19" rx="3"/><path d="M17 21v-6a7 7 0 0 1 14 0v6"/><path d="M24 28v5"/></svg><span>Certyfikat SSL<br />po publikacji HTTPS</span></div></div>
+          </div>
+          <div class="agent-check">
+            <strong>Agencja Ubezpieczeniowa 4-Life Sp. z o.o.</strong><br />
+            NIP: <strong>9581679014</strong> · REGON: <strong>366854052</strong><br />
+            Numer agenta Agencji Ubezpieczeniowej 4-Life Sp. z o.o.: <strong>11234631/A</strong><br />
+            Radosław Lamk — osoba fizyczna wykonująca czynności agencyjne dla Agencji Ubezpieczeniowej 4-Life Sp. z o.o.<br />
+            Numer RAU Radosława Lamk: <strong>11458708/P</strong><br />
+            <a href="https://rpu.knf.gov.pl/" target="_blank" rel="noreferrer">Sprawdź agencję i osobę wykonującą czynności agencyjne w rejestrze KNF</a>.
+            <small class="trust-note">Odnośniki prowadzą do oficjalnych serwisów informacyjnych i nie oznaczają patronatu ani rekomendacji instytucji.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© 2026 LAMKUBEZPIECZENIA.pl | Radosław Lamk</span>
+        <span>Profesjonalne doradztwo ubezpieczeniowe</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

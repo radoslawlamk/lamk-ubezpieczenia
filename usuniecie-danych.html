@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+  <title>Wycofanie zgód marketingowych | LAMKUBEZPIECZENIA.pl</title>
+  <meta name="description" content="Złóż żądanie wycofania zgód i usunięcia kontaktu z bazy marketingowej LAMKUBEZPIECZENIA.pl." />
+  <style>
+    :root{--navy:#0e2238;--teal:#0f7f7b;--ink:#17202b;--muted:#607085;--paper:#f5f7f9;--line:#d9e0e5;--danger:#a62b2b;--success:#17734a}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--paper);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}.top{background:var(--navy);color:#fff}.top-inner{width:min(1120px,calc(100% - 32px));min-height:70px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:900}.mark{display:grid;place-items:center;width:38px;height:38px;border-radius:6px;background:var(--teal)}.back{color:#dce6ed;text-decoration:none;font-size:13px}.hero{padding:54px 0 92px;color:#fff;background:var(--navy)}.container{width:min(900px,calc(100% - 32px));margin:auto}.eyebrow{margin:0 0 6px;color:#72cbc2;font-size:11px;font-weight:900;text-transform:uppercase}.hero h1{max-width:720px;margin:0;font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;letter-spacing:0}.hero p{max-width:650px;margin:14px 0 0;color:#c7d3dc}.content{margin-top:-48px;padding-bottom:60px}.panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.75fr);gap:30px;padding:28px;border:1px solid var(--line);border-radius:8px;background:#fff;box-shadow:0 18px 50px rgba(14,34,56,.1)}h2{margin:0 0 8px;color:var(--navy);letter-spacing:0}.intro{margin:0 0 22px;color:var(--muted);font-size:13px}.field{display:grid;gap:6px;margin-bottom:13px}.field span{font-size:12px;font-weight:850}.field input,.field textarea{width:100%;min-height:44px;padding:10px 11px;border:1px solid #c9d2da;border-radius:6px;font:inherit}.field textarea{min-height:120px;resize:vertical}.honeypot{position:absolute;left:-10000px}.button{width:100%;min-height:44px;border:0;border-radius:6px;color:#fff;background:var(--navy);font:inherit;font-weight:850;cursor:pointer}.button:disabled{opacity:.6}.status{min-height:22px;margin:12px 0 0;color:var(--success);font-size:13px}.status.error{color:var(--danger)}.info{padding:20px;border-radius:7px;background:#eef4f5}.info h2{font-size:1.15rem}.info ul{padding-left:18px;margin:14px 0;color:var(--muted);font-size:13px}.info p{color:var(--muted);font-size:12px}.info a{color:var(--teal);font-weight:800}footer{padding:24px 0;color:#8ea0ad;background:#091a2a;font-size:12px}footer .container{display:flex;justify-content:space-between;gap:20px}footer a{color:#fff}@media(max-width:720px){.panel{grid-template-columns:1fr;padding:20px}.hero{padding:42px 0 78px}.top-inner{min-height:62px}.brand{font-size:13px}footer .container{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="top"><div class="top-inner"><a class="brand" href="index.html"><span class="mark">L</span>LAMKUBEZPIECZENIA.pl</a><a class="back" href="index.html">Powrót do strony głównej</a></div></header>
+  <section class="hero"><div class="container"><p class="eyebrow">Prywatność i zgody</p><h1>Wycofanie zgód marketingowych</h1><p>Złóż żądanie usunięcia Twojego kontaktu z bazy marketingowej. Zgłoszenie zostanie zweryfikowane i obsłużone w panelu administratora.</p></div></section>
+  <main class="container content">
+    <div class="panel">
+      <form id="deletionRequestForm">
+        <div><h2>Usuń kontakt z bazy marketingowej</h2><p class="intro">Podaj adres e-mail użyty wcześniej w formularzu lub kontakcie z LAMKUBEZPIECZENIA.pl.</p></div>
+        <label class="field"><span>Adres e-mail</span><input id="requestEmail" type="email" autocomplete="email" required maxlength="254" /></label>
+        <label class="field"><span>Dodatkowa informacja, opcjonalnie</span><textarea id="requestReason" maxlength="1000" placeholder="Np. proszę o wycofanie wszystkich zgód marketingowych."></textarea></label>
+        <label class="honeypot" aria-hidden="true">Strona internetowa<input id="requestWebsite" tabindex="-1" autocomplete="off" /></label>
+        <button class="button" type="submit">Wyślij żądanie</button>
+        <p class="status" id="requestStatus" role="status"></p>
+      </form>
+      <aside class="info">
+        <h2>Co stanie się dalej?</h2>
+        <ul><li>zgłoszenie trafi do zabezpieczonego panelu CRM,</li><li>adres zostanie dopasowany do zapisanych zgód,</li><li>po weryfikacji wszystkie zgody marketingowe zostaną wycofane,</li><li>brak aktywnej polisy sam w sobie nie powoduje usunięcia ważnej zgody.</li></ul>
+        <p>To żądanie dotyczy bazy marketingowej. W sprawie realizacji pozostałych praw związanych z danymi osobowymi skontaktuj się z nami: <a href="mailto:kontakt@lamkubezpieczenia.pl">kontakt@lamkubezpieczenia.pl</a>.</p>
+      </aside>
+    </div>
+  </main>
+  <footer><div class="container"><span>© 2026 LAMKUBEZPIECZENIA.pl | Radosław Lamk</span><span><a href="polityka-prywatnosci.html">Polityka Prywatności</a> · <a href="regulamin.html">Regulamin</a></span></div></footer>
+  <script>
+    document.querySelector('#deletionRequestForm').addEventListener('submit', async event => {
+      event.preventDefault();
+      const button = event.submitter;
+      const status = document.querySelector('#requestStatus');
+      button.disabled = true; status.classList.remove('error'); status.textContent = 'Wysyłanie żądania...';
+      try {
+        const response = await fetch('/api/marketing/deletion-requests', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ email:document.querySelector('#requestEmail').value, reason:document.querySelector('#requestReason').value, website:document.querySelector('#requestWebsite').value }) });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || 'Nie udało się wysłać żądania.');
+        event.target.reset(); status.textContent = 'Żądanie zostało zapisane. Po weryfikacji kontakt zostanie usunięty z bazy marketingowej.';
+      } catch (error) { status.classList.add('error'); status.textContent = error.message; }
+      finally { button.disabled = false; }
+    });
+  </script>
+</body>
+</html>

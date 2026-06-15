@@ -1,0 +1,1480 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ubezpieczenia nieruchomości, domu i mieszkania | LAMKUBEZPIECZENIA.pl</title>
+  <meta name="description" content="Ubezpieczenia nieruchomości, ubezpieczenie domu i ubezpieczenie mieszkania z pomocą agenta. Porównanie ofert, rozszerzenia, FAQ i formularz do kalkulacji." />
+  <meta name="keywords" content="ubezpieczenia nieruchomości, ubezpieczenia domu, ubezpieczenie mieszkania, ubezpieczenie domu, ubezpieczenie nieruchomości" />
+  <style>
+    :root {
+      --navy: #0e2238;
+      --blue: #1f5f9f;
+      --teal: #0f8b8d;
+      --gold: #c69a3b;
+      --ink: #17202b;
+      --muted: #607085;
+      --paper: #f7f8fa;
+      --white: #ffffff;
+      --line: rgba(14, 34, 56, 0.13);
+      --shadow: 0 22px 60px rgba(14, 34, 56, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.58;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav,
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--navy), var(--teal));
+      border-radius: 8px;
+    }
+
+    .brand strong {
+      display: block;
+      color: var(--navy);
+      line-height: 1.1;
+      overflow-wrap: anywhere;
+    }
+
+    .brand span span {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #34465b;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 8px;
+      background: var(--gold);
+      color: #111827;
+      font-weight: 800;
+      border: 1px solid rgba(91, 67, 15, 0.12);
+      cursor: pointer;
+    }
+
+    .button.dark { background: var(--navy); color: var(--white); }
+    .button.secondary { background: var(--white); color: var(--navy); border-color: var(--line); }
+
+    .hero {
+      background:
+        linear-gradient(90deg, rgba(14, 34, 56, 0.95), rgba(14, 34, 56, 0.76) 52%, rgba(14, 34, 56, 0.2)),
+        url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1800&q=80") center / cover no-repeat;
+      color: var(--white);
+      min-height: 610px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 780px;
+      padding: 92px 0;
+    }
+
+    .eyebrow {
+      color: #f6d889;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin: 0 0 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.65rem, 6vw, 5.1rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 24px 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    section { padding: 78px 0; }
+
+    h2 {
+      margin: 0 0 18px;
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 1.18rem;
+      line-height: 1.22;
+    }
+
+    p { color: var(--muted); margin: 0 0 16px; }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.7fr);
+      gap: 34px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .addon-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .offer-card,
+    .addon-card,
+    .mini-card,
+    .panel,
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 12px 30px rgba(14, 34, 56, 0.06);
+    }
+
+    .offer-card {
+      min-height: 238px;
+      padding: 24px;
+      display: grid;
+      grid-template-rows: 64px auto;
+      align-content: start;
+      gap: 16px;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .offer-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(31, 95, 159, 0.28);
+      box-shadow: var(--shadow);
+    }
+
+    .addon-card {
+      min-height: 148px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 14px;
+      align-items: start;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .addon-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(15, 139, 141, 0.28);
+      box-shadow: 0 18px 42px rgba(14, 34, 56, 0.12);
+    }
+
+    .offer-card h3 {
+      min-height: 56px;
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: var(--navy);
+      background:
+        radial-gradient(circle at 75% 20%, rgba(198, 154, 59, 0.28) 0 18%, transparent 19%),
+        linear-gradient(135deg, #e8f3f3, #f9f3e5);
+      border: 1px solid rgba(14, 34, 56, 0.08);
+      font-weight: 900;
+      position: relative;
+      overflow: hidden;
+      transition: transform 180ms ease, color 180ms ease, background 180ms ease;
+    }
+
+    .icon::after {
+      content: "";
+      position: absolute;
+      inset: -35%;
+      background: linear-gradient(120deg, transparent 38%, rgba(255, 255, 255, 0.62) 50%, transparent 62%);
+      transform: translateX(-120%) rotate(12deg);
+    }
+
+    .icon.small {
+      width: 50px;
+      height: 50px;
+      font-size: 0.82rem;
+    }
+
+    .icon svg {
+      width: 30px;
+      height: 30px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      position: relative;
+      z-index: 1;
+      transition: transform 180ms ease;
+    }
+
+    .offer-card:hover .icon {
+      color: var(--blue);
+      background:
+        radial-gradient(circle at 75% 20%, rgba(198, 154, 59, 0.42) 0 18%, transparent 19%),
+        linear-gradient(135deg, #dff2f2, #fff7e7);
+      transform: translateY(-2px);
+    }
+
+    .addon-card:hover .icon {
+      color: var(--teal);
+      background:
+        radial-gradient(circle at 75% 20%, rgba(198, 154, 59, 0.42) 0 18%, transparent 19%),
+        linear-gradient(135deg, #dff2f2, #fff7e7);
+      transform: translateY(-2px);
+    }
+
+    .offer-card:hover .icon svg,
+    .addon-card:hover .icon svg {
+      animation: iconFloat 680ms ease both;
+    }
+
+    .offer-card:hover .icon::after,
+    .addon-card:hover .icon::after {
+      animation: iconShine 760ms ease both;
+    }
+
+    @keyframes iconFloat {
+      0% { transform: translateY(0) scale(1); }
+      45% { transform: translateY(-4px) scale(1.08); }
+      100% { transform: translateY(-2px) scale(1.04); }
+    }
+
+    @keyframes iconShine {
+      0% { transform: translateX(-120%) rotate(12deg); }
+      100% { transform: translateX(120%) rotate(12deg); }
+    }
+
+    .addon-card h3 {
+      font-size: 1rem;
+      margin-bottom: 5px;
+      min-height: 42px;
+      display: flex;
+      align-items: flex-start;
+    }
+    .addon-card p { font-size: 0.92rem; margin: 0; }
+
+    .seo-band {
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(370px, 1.08fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .panel { padding: 30px; }
+
+    .points {
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      margin: 24px 0 0;
+      list-style: none;
+    }
+
+    .points li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 10px;
+      color: #34465b;
+    }
+
+    .points li::before {
+      content: "✓";
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      background: #e8f3f3;
+      color: var(--teal);
+      border-radius: 7px;
+      font-weight: 900;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .mini-card { padding: 22px; }
+
+    .form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .wizard {
+      display: grid;
+      gap: 18px;
+    }
+
+    .wizard-progress {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      margin: 8px 0 6px;
+    }
+
+    .wizard-dot {
+      min-height: 8px;
+      border-radius: 999px;
+      background: #dfe8ee;
+    }
+
+    .wizard-dot.is-active,
+    .wizard-dot.is-complete {
+      background: var(--teal);
+    }
+
+    .step-title {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 4px;
+    }
+
+    .step-title strong {
+      color: var(--navy);
+      font-size: 1.05rem;
+    }
+
+    .step-title span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .form-step {
+      display: none;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .form-step.is-active {
+      display: grid;
+    }
+
+    .conditional.is-hidden {
+      display: none;
+    }
+
+    .form-section-title {
+      grid-column: 1 / -1;
+      margin: 10px 0 0;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--navy);
+      font-weight: 900;
+    }
+
+    .field { display: grid; gap: 6px; }
+    .field.full { grid-column: 1 / -1; }
+
+    label {
+      color: var(--navy);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 12px;
+      border: 1px solid rgba(14, 34, 56, 0.18);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    textarea { min-height: 104px; resize: vertical; }
+
+    .checks {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .check-field {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+      color: #34465b;
+      font-size: 0.92rem;
+    }
+
+    .check-field input { width: auto; min-height: auto; margin-top: 4px; }
+
+    .note {
+      grid-column: 1 / -1;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .status { color: var(--teal); font-weight: 800; }
+
+    .wizard-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .wizard-actions .button {
+      min-width: 150px;
+    }
+
+    .privacy-box {
+      grid-column: 1 / -1;
+      max-height: 150px;
+      overflow: auto;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .legal-consent-block {
+      grid-column: 1 / -1;
+      display: grid;
+      gap: 10px;
+      margin-top: 4px;
+      padding: 14px;
+      border: 1px solid rgba(14, 34, 56, 0.12);
+      border-radius: 8px;
+      background: #fafbfc;
+      color: #6b7280;
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
+
+    .legal-check {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 9px;
+      align-items: start;
+      color: #4b5563;
+      cursor: pointer;
+    }
+
+    .legal-check input {
+      width: 16px;
+      height: 16px;
+      min-height: 0;
+      margin: 2px 0 0;
+      accent-color: var(--teal);
+    }
+
+    .legal-check a {
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .legal-fine-print {
+      margin: 0;
+      color: #6b7280;
+      font-size: 12px;
+    }
+
+    .marketing-consents {
+      border-top: 1px solid rgba(14, 34, 56, 0.1);
+      padding-top: 9px;
+    }
+
+    .marketing-consents summary {
+      color: #4b5563;
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .marketing-consents summary::-webkit-details-marker { display: none; }
+    .marketing-consents summary::after { content: "+"; float: right; color: var(--teal); }
+    .marketing-consents[open] summary::after { content: "−"; }
+
+    .marketing-consent-content {
+      display: grid;
+      gap: 10px;
+      padding-top: 11px;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-item { padding: 0; overflow: hidden; }
+
+    .faq-item summary {
+      padding: 18px 20px;
+      color: var(--navy);
+      font-weight: 900;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item p { padding: 0 20px 20px; }
+
+    .blog-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .blog-controls { display: flex; gap: 10px; }
+
+    .slider-button {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--navy);
+      font-weight: 900;
+      font-size: 1.15rem;
+      cursor: pointer;
+    }
+
+    .blog-list {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 18px;
+      scrollbar-width: thin;
+    }
+
+    .blog-card {
+      flex: 0 0 min(390px, 86vw);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      scroll-snap-align: start;
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #dfe8ee;
+      display: block;
+    }
+
+    .blog-card-body { padding: 22px; }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      background: #091827;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.9rem;
+    }
+
+    .footer-main { padding: 58px 0 46px; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 34px;
+    }
+
+    .footer-column h3 {
+      margin: 0 0 18px;
+      color: var(--white);
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      transition: color 160ms ease;
+    }
+
+    .footer-links a:hover { color: #f6d889; }
+
+    .footer-contact { display: grid; gap: 12px; }
+
+    .footer-contact span {
+      display: block;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 3px;
+    }
+
+    .footer-contact strong {
+      color: var(--white);
+      overflow-wrap: anywhere;
+    }
+
+    .footer-trust {
+      padding: 30px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .trust-layout {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.5fr) minmax(0, 1.5fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .trust-copy h3 {
+      margin: 0 0 8px;
+      color: var(--white);
+      font-size: 1.16rem;
+    }
+
+    .trust-copy p { margin: 0; color: rgba(255, 255, 255, 0.62); }
+
+    .trust-badges {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .trust-badge {
+      min-height: 82px;
+      padding: 13px 16px;
+      border-radius: 8px;
+      background: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      text-align: center;
+    }
+
+    .trust-badge img {
+      display: block;
+      max-width: 150px;
+      max-height: 52px;
+      width: auto;
+      height: auto;
+    }
+
+    .ssl-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+    }
+
+    .ssl-mark svg {
+      width: 34px;
+      height: 34px;
+      stroke: var(--teal);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    .agent-check {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .agent-check strong { color: var(--white); }
+    .agent-check a { color: #f6d889; font-weight: 800; }
+
+    .trust-note {
+      display: block;
+      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.46);
+      font-size: 0.76rem;
+    }
+
+    .footer-bottom { padding: 22px 0; }
+
+    .footer-bottom .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1020px) {
+      .cards-grid,
+      .addon-grid,
+      .mini-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .two-col,
+      .section-head { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .trust-layout { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 920px) {
+      .nav-links a:not(.button) { display: none; }
+      .hero {
+        background:
+          linear-gradient(180deg, rgba(14, 34, 56, 0.94), rgba(14, 34, 56, 0.72), rgba(14, 34, 56, 0.24)),
+          url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=80") center / cover no-repeat;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .brand span span { display: none; }
+      section { padding: 58px 0; }
+      .hero { min-height: 660px; }
+      .hero-content { padding: 74px 0; }
+      .cards-grid,
+      .addon-grid,
+      .mini-grid,
+      .form,
+      .checks { grid-template-columns: 1fr; }
+      .panel { padding: 22px; }
+      .offer-card { min-height: 200px; }
+      .button { width: 100%; }
+      .footer-grid,
+      .trust-badges { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Co obejmuje ubezpieczenie nieruchomości?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ubezpieczenie nieruchomości może obejmować mury, elementy stałe, wyposażenie, OC w życiu prywatnym oraz wybrane ryzyka dodatkowe, takie jak kradzież z włamaniem, powódź, przepięcia, wandalizm czy assistance domowy. Dokładny zakres zależy od wybranej oferty i ogólnych warunków ubezpieczenia."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czym różni się ubezpieczenie domu od ubezpieczenia mieszkania?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ubezpieczenie domu zwykle dotyczy budynku, stałych elementów, często także ogrodzenia, garażu, budynków gospodarczych i elementów posesji. Ubezpieczenie mieszkania obejmuje lokal, stałe elementy, wyposażenie oraz często piwnicę, komórkę lokatorską i OC w życiu prywatnym."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy ubezpieczenie mieszkania może obejmować zalanie sąsiada?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tak, jeżeli polisa zawiera OC w życiu prywatnym. Takie rozszerzenie może pomóc, gdy nieumyślnie spowodujesz szkodę u innej osoby, na przykład zalanie mieszkania sąsiada."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy bank może wymagać ubezpieczenia domu lub mieszkania?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Przy kredycie hipotecznym bank zazwyczaj wymaga ubezpieczenia nieruchomości co najmniej w zakresie murów i cesji praw z polisy. Warto jednak rozważyć szerszy zakres, obejmujący także elementy stałe, wyposażenie i OC."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jak przygotować dane do wyceny ubezpieczenia nieruchomości?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Do wyceny przydają się informacje o rodzaju nieruchomości, powierzchni, roku budowy, konstrukcji, formie własności, zabezpieczeniach, sumach ubezpieczenia oraz wybranych ryzykach dodatkowych."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Główna nawigacja">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">L</span>
+        <span><strong>LAMKUBEZPIECZENIA.pl</strong><span>Radosław Lamk | Agent ubezpieczeniowy</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#oferta">Oferta</a>
+        <a href="#zakres">Zakres</a>
+        <a href="#formularz">Formularz</a>
+        <a href="#faq">FAQ</a>
+        <a class="button" href="admin.html">Panel admin</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <p class="eyebrow">Ubezpieczenia nieruchomości, domu i mieszkania</p>
+          <h1>Ubezpieczenia nieruchomości dopasowane do Twojego majątku</h1>
+          <p class="lead">Porównuję ubezpieczenia domu, ubezpieczenie mieszkania oraz rozszerzenia ochrony w wielu towarzystwach. Pomagam dobrać polisę pod kredyt, najem, dom jednorodzinny, mieszkanie, domek letniskowy lub altanę.</p>
+          <div class="hero-actions">
+            <a class="button" href="#formularz">Wyceń ubezpieczenie</a>
+            <a class="button secondary" href="#faq">Sprawdź FAQ</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="zakres">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Oferta podstawowa</p>
+            <h2>Jaką nieruchomość możesz ubezpieczyć?</h2>
+          </div>
+          <p>Ubezpieczenia nieruchomości mogą chronić zarówno lokal mieszkalny, jak i dom, domek letniskowy czy altanę. Najważniejsze jest dobranie sum ubezpieczenia i zakresu do realnej wartości mienia.</p>
+        </div>
+        <div class="cards-grid">
+          <article class="offer-card">
+            <span class="icon"><svg viewBox="0 0 48 48"><path d="M12 40V10h24v30"/><path d="M17 16h5v5h-5zM26 16h5v5h-5zM17 26h5v5h-5zM26 26h5v5h-5z"/><path d="M21 40v-6h6v6"/><path d="M9 40h30"/></svg></span>
+            <div>
+              <h3>Ubezpieczenie mieszkania</h3>
+              <p>Ochrona lokalu, elementów stałych, wyposażenia, piwnicy lub komórki. Dla właściciela, najemcy i mieszkania pod kredyt.</p>
+            </div>
+          </article>
+          <article class="offer-card">
+            <span class="icon"><svg viewBox="0 0 48 48"><path d="M7 24L24 10l17 14"/><path d="M13 22v18h22V22"/><path d="M19 40V29h10v11"/><path d="M31 14V9h5v10"/><path d="M17 24h5M26 24h5"/></svg></span>
+            <div>
+              <h3>Ubezpieczenie domu</h3>
+              <p>Polisa dla domu wolnostojącego, bliźniaka lub szeregowca. Obejmuje budynek, stałe elementy, instalacje, garaż i wybrane rozszerzenia.</p>
+            </div>
+          </article>
+          <article class="offer-card">
+            <span class="icon"><svg viewBox="0 0 48 48"><path d="M12 39V23l12-10 12 10v16"/><path d="M18 39V29h12v10"/><path d="M17 19l-5-8M31 19l5-8"/><path d="M14 12h20"/><path d="M9 39h30"/></svg></span>
+            <div>
+              <h3>Ubezpieczenie domu letniskowego</h3>
+              <p>Ochrona sezonowej nieruchomości, wyposażenia i elementów stałych przed zdarzeniami losowymi, kradzieżą oraz dewastacją.</p>
+            </div>
+          </article>
+          <article class="offer-card">
+            <span class="icon"><svg viewBox="0 0 48 48"><path d="M9 40h30"/><path d="M15 40V25l9-8 9 8v15"/><path d="M19 17V9h10v8"/><path d="M20 40V30h8v10"/><path d="M13 25h22"/></svg></span>
+            <div>
+              <h3>Ubezpieczenie altany</h3>
+              <p>Zakres dla altany, zabudowy ogrodowej lub obiektu rekreacyjnego. Pomaga chronić konstrukcję i rzeczy przechowywane na działce.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seo-band">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Ubezpieczenie dodatkowe</p>
+            <h2>Rozszerzenia do ubezpieczenia domu i mieszkania</h2>
+          </div>
+          <p>Rozszerzenia decydują o tym, czy polisa będzie działała tylko przy podstawowych zdarzeniach, czy również w codziennych sytuacjach: awarii, przepięciu, kradzieży, stłuczeniu albo szkodzie wyrządzonej osobie trzeciej.</p>
+        </div>
+        <div class="addon-grid">
+          <article class="addon-card"><span class="icon small"><svg viewBox="0 0 48 48"><path d="M24 7l15 6v10c0 10-6 17-15 20C15 40 9 33 9 23V13l15-6z"/><path d="M17 25h14M24 18v14"/></svg></span><div><h3>Ubezpieczenie OC w życiu prywatnym</h3><p>Wsparcie, gdy nieumyślnie wyrządzisz szkodę innej osobie, np. zalejesz sąsiada.</p></div></article>
+          <article class="addon-card"><span class="icon small"><svg viewBox="0 0 48 48"><circle cx="15" cy="33" r="8"/><circle cx="35" cy="33" r="8"/><path d="M15 33l8-15h7l5 15M23 18l-3-5M24 33l-7-11h16"/></svg></span><div><h3>Ubezpieczenie roweru</h3><p>Ochrona roweru w domu, piwnicy, garażu lub w innych wariantach wskazanych w ofercie.</p></div></article>
+          <article class="addon-card"><span class="icon small"><svg viewBox="0 0 48 48"><rect x="12" y="21" width="24" height="18" rx="3"/><path d="M17 21v-5a7 7 0 0 1 14 0v5"/><path d="M24 28v5"/></svg></span><div><h3>Ubezpieczenie od kradzieży z włamaniem</h3><p>Ochrona mienia po włamaniu, z uwzględnieniem wymogów zabezpieczeń.</p></div></article>
+          <article class="addon-card"><span class="icon small"><svg viewBox="0 0 48 48"><path d="M10 18l14-8 14 8v20H10z"/><path d="M17 38V25h14v13"/><path d="M17 25h14M21 31h6"/></svg></span><div><h3>Ubezpieczenie wyposażenia</h3><p>Meble, sprzęt RTV i AGD, elektronika oraz inne ruchomości domowe.</p></div></article>
+          <article class="addon-card"><span class="icon small"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M24 12v12l8 5"/><path d="M13 38l-4 4M35 38l4 4"/></svg></span><div><h3>Assistance domowy</h3><p>Pomoc specjalisty po awarii, np. hydraulika, elektryka lub ślusarza.</p></div></article>
+          <article class="addon-card"><span class="icon small"><svg viewBox="0 0 48 48"><path d="M14 8h20l4 14-14 18L10 22z"/><path d="M14 22h20M19 8l-5 14M29 8l5 14M24 8v32"/></svg></span><div><h3>Elementy stałe od stłuczeń</h3><p>Ochrona szyb, elementów szklanych, płyty indukcyjnej lub zabudowanych luster.</p></div></article>
+          <article class="addon-card"><span class="icon small"><svg viewBox="0 0 48 48"><path d="M16 18h16l4 22H12z"/><path d="M19 18a5 5 0 0 1 10 0"/><path d="M18 28h12"/></svg></span><div><h3>Rzeczy osobiste poza miejscem ubezpieczenia</h3><p>Ochrona wybranych przedmiotów również poza domem lub mieszkaniem.</p></div></article>
+          <article class="addon-card"><span class="icon small"><svg viewBox="0 0 48 48"><path d="M26 5L12 27h11l-1 16 14-23H25z"/></svg></span><div><h3>Przepięcia</h3><p>Ochrona elektroniki i instalacji przed nagłym skokiem napięcia.</p></div></article>
+          <article class="addon-card"><span class="icon small"><svg viewBox="0 0 48 48"><path d="M12 36l24-24"/><path d="M14 14l20 20"/><path d="M9 39h30"/><path d="M18 10h12"/></svg></span><div><h3>Wandalizm i dewastacja</h3><p>Zakres przy zniszczeniu mienia przez osoby trzecie.</p></div></article>
+          <article class="addon-card"><span class="icon small"><svg viewBox="0 0 48 48"><path d="M8 30c5-5 11-5 16 0s11 5 16 0"/><path d="M8 38c5-5 11-5 16 0s11 5 16 0"/><path d="M24 8c6 7 10 12 10 18a10 10 0 0 1-20 0c0-6 4-11 10-18z"/></svg></span><div><h3>Powódź</h3><p>Rozszerzenie szczególnie ważne przy domach i lokalizacjach narażonych na zalania.</p></div></article>
+          <article class="addon-card"><span class="icon small"><svg viewBox="0 0 48 48"><path d="M10 38V18l14-8 14 8v20"/><path d="M8 38h32"/><path d="M14 38V25h20v13"/><path d="M18 25v13M24 25v13M30 25v13"/></svg></span><div><h3>Elementy zewnętrzne</h3><p>Ochrona ogrodzenia, bramy, furtki, elementów posesji lub wybranych instalacji zewnętrznych.</p></div></article>
+          <article class="addon-card"><span class="icon small"><svg viewBox="0 0 48 48"><path d="M10 30h28"/><path d="M14 18h20l4 12H10z"/><path d="M18 18l-4 12M24 18v12M30 18l4 12"/><path d="M16 38h16M24 30v8"/></svg></span><div><h3>Fotowoltaika i pompy ciepła</h3><p>Ochrona paneli, falownika lub pompy ciepła przed zdarzeniami losowymi i wybranymi uszkodzeniami.</p></div></article>
+          <article class="addon-card"><span class="icon small"><svg viewBox="0 0 48 48"><path d="M10 40V20l14-10 14 10v20"/><path d="M18 40V28h12v12"/><path d="M13 40h22"/><circle cx="35" cy="31" r="4"/><path d="M39 35l3 3"/></svg></span><div><h3>Lokatorzy i zwierzęta domowe</h3><p>Rozszerzenie przy najmie oraz szkodach związanych z lokatorem lub zwierzęciem.</p></div></article>
+          <article class="addon-card"><span class="icon small"><svg viewBox="0 0 48 48"><path d="M10 36h28"/><path d="M14 36V18h20v18"/><path d="M18 22h12M18 28h12"/><path d="M12 18h24"/></svg></span><div><h3>Ruchomości w pomieszczeniu przynależnym</h3><p>Ochrona rzeczy przechowywanych w piwnicy, garażu, komórce lokatorskiej lub schowku.</p></div></article>
+          <article class="addon-card"><span class="icon small"><svg viewBox="0 0 48 48"><path d="M9 38h30"/><path d="M12 38V18h24v20"/><path d="M16 22h16M16 28h16M16 34h16"/><path d="M8 18h32"/></svg></span><div><h3>Bramy i ogrodzenia</h3><p>Ochrona bramy, furtki, przęseł ogrodzeniowych i wybranych elementów posesji.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container two-col">
+        <article class="panel">
+          <p class="eyebrow">SEO: ubezpieczenia nieruchomości</p>
+          <h2>Ubezpieczenie domu i ubezpieczenie mieszkania bez przypadkowego zakresu</h2>
+          <p>Ubezpieczenia nieruchomości powinny być dobrane do tego, co faktycznie chcesz chronić. Innej polisy potrzebuje właściciel mieszkania w bloku, innej osoba budująca dom, a jeszcze innej klient, który wynajmuje lokal albo zabezpiecza nieruchomość pod kredyt hipoteczny.</p>
+          <p>Przygotowując ubezpieczenie domu, sprawdzam wartość budynku, stałych elementów, ogrodzenia, garażu, instalacji, wyposażenia i ryzyk dodatkowych. Przy ubezpieczeniu mieszkania zwracam uwagę na lokal, elementy stałe, ruchomości domowe, piwnicę, komórkę lokatorską oraz OC w życiu prywatnym.</p>
+          <p>Najtańsza polisa nie zawsze oznacza najlepszy wybór. Ważne są limity, wyłączenia, karencje, wymagane zabezpieczenia, udział własny i sposób likwidacji szkody. Dlatego porównuję oferty nie tylko po składce, ale też po realnej jakości ochrony.</p>
+          <ul class="points">
+            <li>Porównanie ofert wielu towarzystw ubezpieczeniowych.</li>
+            <li>Dobór sumy ubezpieczenia do wartości nieruchomości i wyposażenia.</li>
+            <li>Analiza ryzyk dodatkowych: kradzież, powódź, przepięcia, OC i assistance.</li>
+            <li>Pomoc przy wyborze, zakupie polisy i likwidacji szkody.</li>
+          </ul>
+        </article>
+
+        <aside class="panel" id="formularz">
+          <h2>Kalkulator ubezpieczenia nieruchomości</h2>
+          <p>Formularz działa krok po kroku. Pokazuje tylko pytania potrzebne dla wybranego typu nieruchomości, a komplet odpowiedzi trafi do wiadomości e-mail.</p>
+          <form class="wizard" id="propertyForm" novalidate>
+            <div class="wizard-progress" aria-label="Postęp formularza">
+              <span class="wizard-dot is-active"></span>
+              <span class="wizard-dot"></span>
+              <span class="wizard-dot"></span>
+              <span class="wizard-dot"></span>
+              <span class="wizard-dot"></span>
+            </div>
+
+            <div class="form-step is-active" data-step="0">
+              <div class="step-title"><strong>Dane nieruchomości</strong><span>Krok 1 z 5</span></div>
+              <div class="field full"><label for="propertyType">Rodzaj nieruchomości</label><select id="propertyType" name="Rodzaj nieruchomości" required><option value="">- Wybierz -</option><option>Mieszkanie</option><option>Dom</option><option>Budynek w budowie</option><option>Dom letniskowy</option><option>Altana</option></select></div>
+              <div class="field conditional" data-show-for="Mieszkanie" data-required-visible><label for="floor">Piętro</label><select id="floor" name="Piętro"><option value="">- Wybierz -</option><option>Parter</option><option>Piętro pośrednie</option><option>Ostatnie piętro</option><option>Poddasze</option></select></div>
+              <div class="field conditional" data-show-for="Dom,Budynek w budowie,Dom letniskowy" data-required-visible><label for="houseType">Rodzaj domu</label><select id="houseType" name="Rodzaj domu"><option value="">- Wybierz -</option><option>Wolnostojący</option><option>Bliźniak</option><option>Szeregowy</option><option>Letniskowy</option></select></div>
+              <div class="field conditional" data-show-for="Dom,Budynek w budowie,Dom letniskowy,Altana" data-required-visible><label for="construction">Rodzaj konstrukcji</label><select id="construction" name="Rodzaj konstrukcji"><option value="">- Wybierz -</option><option>Murowana</option><option>Drewniana</option><option>Mieszana</option><option>Inna</option></select></div>
+              <div class="field"><label for="area">Powierzchnia użytkowa</label><input id="area" name="Powierzchnia użytkowa" type="number" placeholder="m2" /></div>
+              <div class="field"><label for="year">Rok budowy</label><input id="year" name="Rok budowy" type="number" /></div>
+              <div class="field full"><label for="ownership">Forma własności</label><select id="ownership" name="Forma własności"><option>Własność</option><option>Spółdzielcze własnościowe</option><option>Najem</option><option>Własność na wynajem</option><option>Inna</option></select></div>
+              <div class="field full"><label for="business">Czy na miejscu prowadzona jest działalność gospodarcza?</label><select id="business" name="Czy prowadzona jest działalność"><option>Nie</option><option>Tak</option></select></div>
+              <div class="field full conditional" data-show-when="business:Tak" data-required-visible><label for="businessArea">Czy do działalności wykorzystywane jest więcej niż 50% powierzchni nieruchomości?</label><select id="businessArea" name="Czy działalność zajmuje więcej niż 50% powierzchni"><option value="">- Wybierz -</option><option>Nie</option><option>Tak</option></select></div>
+            </div>
+
+            <div class="form-step" data-step="1">
+              <div class="step-title"><strong>Adres i okres ochrony</strong><span>Krok 2 z 5</span></div>
+              <div class="field"><label for="city">Miejscowość</label><input id="city" name="Miejscowość" required /></div>
+              <div class="field"><label for="postal">Kod pocztowy</label><input id="postal" name="Kod pocztowy" /></div>
+              <div class="field full"><label for="address">Adres nieruchomości</label><input id="address" name="Adres nieruchomości" /></div>
+              <div class="field"><label for="startDate">Data rozpoczęcia ochrony</label><input id="startDate" name="Data rozpoczęcia ochrony" type="date" /></div>
+              <div class="field"><label for="period">Okres ubezpieczenia</label><select id="period" name="Okres ubezpieczenia"><option>12 miesięcy</option><option>24 miesiące</option><option>36 miesięcy</option></select></div>
+            </div>
+
+            <div class="form-step" data-step="2">
+              <div class="step-title"><strong>Przedmiot i suma ubezpieczenia</strong><span>Krok 3 z 5</span></div>
+              <div class="field conditional" data-show-for="Mieszkanie" data-required-visible><label for="flatSum">Mieszkanie i stałe elementy</label><input id="flatSum" name="Mieszkanie i stałe elementy - suma" placeholder="np. 450 000 zł" /></div>
+              <div class="field conditional" data-show-for="Dom,Budynek w budowie,Dom letniskowy,Altana" data-required-visible><label for="buildingSum">Dom / budynek i stałe elementy</label><input id="buildingSum" name="Dom lub budynek i stałe elementy - suma" placeholder="np. 600 000 zł" /></div>
+              <div class="field"><label for="movablesSum">Ruchomości domowe</label><input id="movablesSum" name="Ruchomości domowe - suma" placeholder="np. 80 000 zł" /></div>
+              <div class="field conditional" data-show-for="Dom,Budynek w budowie,Dom letniskowy,Altana"><label for="outsideSum">Elementy zewnętrzne</label><input id="outsideSum" name="Elementy zewnętrzne - suma" placeholder="np. ogrodzenie, brama" /></div>
+              <div class="field"><label for="bank">Cesja na bank</label><select id="bank" name="Cesja na bank"><option>Nie</option><option>Tak</option><option>Nie wiem</option></select></div>
+              <div class="field conditional" data-show-when="bank:Tak" data-required-visible><label for="bankName">Nazwa banku do cesji</label><input id="bankName" name="Bank - nazwa" placeholder="np. PKO Bank Polski" /></div>
+              <div class="field conditional" data-show-when="bank:Tak"><label for="bankNip">NIP banku</label><input id="bankNip" name="Bank - NIP" /></div>
+              <div class="field conditional" data-show-when="bank:Tak"><label for="bankRegon">REGON banku</label><input id="bankRegon" name="Bank - REGON" /></div>
+              <div class="field conditional" data-show-when="bank:Tak" data-required-visible><label for="bankAddress">Adres banku</label><input id="bankAddress" name="Bank - adres" placeholder="ulica, kod pocztowy, miejscowość" /></div>
+              <div class="field conditional full" data-show-when="bank:Tak" data-required-visible><label for="bankSum">Suma ubezpieczenia wymagana przez bank i objęta cesją</label><input id="bankSum" name="Suma ubezpieczenia cedowana na bank" placeholder="np. 500 000 zł" /></div>
+              <div class="form-section-title">Zabezpieczenia nieruchomości</div>
+              <div class="checks">
+                <label class="check-field"><input type="checkbox" name="Zabezpieczenia" value="Stały nadzór fizyczny" /> Stały nadzór fizyczny</label>
+                <label class="check-field"><input type="checkbox" name="Zabezpieczenia" value="Drzwi antywłamaniowe" /> Drzwi antywłamaniowe</label>
+                <label class="check-field"><input type="checkbox" name="Zabezpieczenia" value="Domofon" /> Domofon</label>
+                <label class="check-field"><input type="checkbox" name="Zabezpieczenia" value="Zabezpieczenie okien" /> Zabezpieczenie okien</label>
+                <label class="check-field"><input type="checkbox" name="Zabezpieczenia" value="Monitoring" /> Monitoring</label>
+                <label class="check-field"><input type="checkbox" name="Zabezpieczenia" value="Alarm lokalny" /> Alarm lokalny</label>
+              </div>
+            </div>
+
+            <div class="form-step" data-step="3">
+              <div class="step-title"><strong>Ewentualne opcje dodatkowe</strong><span>Krok 4 z 5</span></div>
+              <div class="checks">
+                <label class="check-field"><input type="checkbox" name="Opcje dodatkowe" value="OC w życiu prywatnym" /> OC w życiu prywatnym</label>
+                <label class="check-field"><input type="checkbox" name="Opcje dodatkowe" value="Cesja na bank" /> Cesja na bank</label>
+                <label class="check-field"><input type="checkbox" name="Opcje dodatkowe" value="Powódź" /> Powódź</label>
+                <label class="check-field"><input type="checkbox" name="Opcje dodatkowe" value="Zalanie" /> Zalanie</label>
+                <label class="check-field"><input type="checkbox" name="Opcje dodatkowe" value="Kradzież z włamaniem" /> Kradzież z włamaniem</label>
+                <label class="check-field"><input type="checkbox" name="Opcje dodatkowe" value="Assistance domowy" /> Assistance domowy</label>
+                <label class="check-field"><input type="checkbox" name="Opcje dodatkowe" value="Przepięcia" /> Przepięcia</label>
+                <label class="check-field"><input type="checkbox" name="Opcje dodatkowe" value="Stłuczenie elementów stałych" /> Stłuczenie elementów stałych</label>
+                <label class="check-field"><input type="checkbox" name="Opcje dodatkowe" value="Wandalizm i dewastacja" /> Wandalizm i dewastacja</label>
+                <label class="check-field"><input type="checkbox" name="Opcje dodatkowe" value="Rower" /> Rower</label>
+                <label class="check-field"><input type="checkbox" name="Opcje dodatkowe" value="Gotówka od kradzieży" /> Gotówka od kradzieży</label>
+                <label class="check-field"><input type="checkbox" name="Opcje dodatkowe" value="Biżuteria od kradzieży" /> Biżuteria od kradzieży</label>
+                <label class="check-field conditional" data-show-for="Dom,Budynek w budowie,Dom letniskowy,Altana"><input type="checkbox" name="Opcje dodatkowe" value="Fotowoltaika i pompy ciepła" /> Fotowoltaika i pompy ciepła</label>
+                <label class="check-field"><input type="checkbox" name="Opcje dodatkowe" value="Lokatorzy i zwierzęta domowe" /> Lokatorzy i zwierzęta domowe</label>
+                <label class="check-field"><input type="checkbox" name="Opcje dodatkowe" value="Ruchomości w pomieszczeniu przynależnym" /> Ruchomości w pomieszczeniu przynależnym</label>
+                <label class="check-field conditional" data-show-for="Dom,Budynek w budowie,Dom letniskowy,Altana"><input type="checkbox" name="Opcje dodatkowe" value="Bramy i ogrodzenia" /> Bramy i ogrodzenia</label>
+              </div>
+            </div>
+
+            <div class="form-step" data-step="4">
+              <div class="step-title"><strong>Dane do przesłania ofert</strong><span>Krok 5 z 5</span></div>
+              <div class="field"><label for="email">Adres e-mail</label><input id="email" name="Adres e-mail" type="email" required /></div>
+              <div class="field"><label for="phone">Numer telefonu</label><input id="phone" name="Numer telefonu" type="tel" required /></div>
+              <div class="field"><label for="name">Imię i nazwisko ubezpieczającego</label><input id="name" name="Imię i nazwisko ubezpieczającego" required /></div>
+              <div class="field"><label for="pesel">Numer PESEL ubezpieczającego</label><input id="pesel" name="PESEL" placeholder="opcjonalnie" /></div>
+              <div class="field full"><label for="notes">Dodatkowe informacje</label><textarea id="notes" name="Dodatkowe informacje" placeholder="np. najem, kredyt, fotowoltaika, garaż, szkody w ostatnich latach"></textarea></div>
+              <div class="legal-consent-block">
+                <label class="legal-check">
+                  <input type="checkbox" name="privacy_accepted" value="true" required data-privacy-consent />
+                  <span>Oświadczam, że zapoznałem(-am) się z <a href="regulamin.html" target="_blank">Regulaminem Serwisu</a> oraz <a href="polityka-prywatnosci.html" target="_blank">Polityką Prywatności</a> i przyjmuję ich treść do wiadomości.</span>
+                </label>
+                <p class="legal-fine-print">Wysłanie formularza stanowi żądanie przygotowania indywidualnej oferty ubezpieczeniowej. Administrator może kontaktować się z Tobą telefonicznie, SMS oraz e-mail w zakresie niezbędnym do realizacji zgłoszenia, przygotowania kalkulacji, przedstawienia oferty, uzupełnienia danych oraz udzielenia odpowiedzi na pytania.</p>
+                <details class="marketing-consents">
+                  <summary>Opcjonalne zgody marketingowe</summary>
+                  <div class="marketing-consent-content">
+                    <label class="legal-check">
+                      <input type="checkbox" name="marketing_email_consent" value="true" />
+                      <span>Wyrażam zgodę na otrzymywanie od Radosława Lamk informacji handlowych, ofert, promocji, porad, przypomnień oraz propozycji dotyczących produktów i usług ubezpieczeniowych za pośrednictwem poczty elektronicznej na wskazany przeze mnie adres e-mail.</span>
+                    </label>
+                    <label class="legal-check">
+                      <input type="checkbox" name="marketing_sms_consent" value="true" />
+                      <span>Wyrażam zgodę na otrzymywanie od Radosława Lamk informacji handlowych, ofert, promocji, porad, przypomnień oraz propozycji dotyczących produktów i usług ubezpieczeniowych za pomocą wiadomości SMS/MMS na wskazany przeze mnie numer telefonu.</span>
+                    </label>
+                    <label class="legal-check">
+                      <input type="checkbox" name="marketing_phone_consent" value="true" />
+                      <span>Wyrażam zgodę na kontakt telefoniczny od Radosława Lamk w celach marketingowych, w tym w celu przedstawiania informacji handlowych, ofert, promocji, porad, przypomnień oraz propozycji dotyczących produktów i usług ubezpieczeniowych.</span>
+                    </label>
+                    <p class="legal-fine-print">Wyrażenie zgód marketingowych jest dobrowolne i nie jest wymagane do uzyskania oferty ubezpieczeniowej. Zgody można wycofać w dowolnym momencie poprzez kontakt na adres: kontakt@lamkubezpieczenia.pl. Wycofanie zgody nie wpływa na zgodność z prawem działań dokonanych przed jej wycofaniem.</p>
+                  </div>
+                </details>
+              </div>
+              <p class="note">Dane zostaną bezpiecznie zapisane i przekazane agentowi do przygotowania oferty.</p>
+            </div>
+
+            <div class="wizard-actions">
+              <button class="button secondary" type="button" data-prev-step>Wstecz</button>
+              <button class="button dark" type="button" data-next-step>Dalej</button>
+              <button class="button dark" type="submit" data-submit-step>Wyślij zapytanie</button>
+            </div>
+            <span class="status" id="formStatus"></span>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="seo-band">
+      <div class="container">
+        <h2>Co wpływa na cenę ubezpieczenia domu i mieszkania?</h2>
+        <p>Składka zależy od rodzaju nieruchomości, lokalizacji, wartości murów i wyposażenia, roku budowy, konstrukcji, zabezpieczeń oraz wybranych rozszerzeń. Dwie polisy o podobnej cenie mogą mieć zupełnie inny zakres, dlatego przed zakupem warto porównać nie tylko składkę, ale też warunki wypłaty.</p>
+        <div class="mini-grid">
+          <article class="mini-card"><h3>Suma ubezpieczenia</h3><p>Powinna odpowiadać realnej wartości nieruchomości i mienia. Zbyt niska suma może oznaczać problem przy większej szkodzie.</p></article>
+          <article class="mini-card"><h3>Zakres ryzyk</h3><p>Pożar, zalanie, przepięcia, powódź, kradzież, wandalizm i stłuczenia mogą być w różnych ofertach rozliczane inaczej.</p></article>
+          <article class="mini-card"><h3>Wymagane zabezpieczenia</h3><p>Przy kradzieży z włamaniem ubezpieczyciel może wymagać określonych drzwi, zamków, alarmu lub innych zabezpieczeń.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">FAQ Google</p>
+            <h2>Pytania i odpowiedzi o ubezpieczeniach nieruchomości</h2>
+          </div>
+          <p>FAQ zostało dodane również jako dane strukturalne FAQPage, aby wyszukiwarki mogły łatwiej zrozumieć temat podstrony.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item" open><summary>Co obejmuje ubezpieczenie nieruchomości?</summary><p>Ubezpieczenie nieruchomości może obejmować mury, elementy stałe, wyposażenie, OC w życiu prywatnym oraz wybrane ryzyka dodatkowe, takie jak kradzież z włamaniem, powódź, przepięcia, wandalizm czy assistance domowy. Dokładny zakres zależy od wybranej oferty i ogólnych warunków ubezpieczenia.</p></details>
+          <details class="faq-item"><summary>Czym różni się ubezpieczenie domu od ubezpieczenia mieszkania?</summary><p>Ubezpieczenie domu zwykle dotyczy budynku, stałych elementów, często także ogrodzenia, garażu, budynków gospodarczych i elementów posesji. Ubezpieczenie mieszkania obejmuje lokal, stałe elementy, wyposażenie oraz często piwnicę, komórkę lokatorską i OC w życiu prywatnym.</p></details>
+          <details class="faq-item"><summary>Czy ubezpieczenie mieszkania może obejmować zalanie sąsiada?</summary><p>Tak, jeżeli polisa zawiera OC w życiu prywatnym. Takie rozszerzenie może pomóc, gdy nieumyślnie spowodujesz szkodę u innej osoby, na przykład zalanie mieszkania sąsiada.</p></details>
+          <details class="faq-item"><summary>Czy bank może wymagać ubezpieczenia domu lub mieszkania?</summary><p>Przy kredycie hipotecznym bank zazwyczaj wymaga ubezpieczenia nieruchomości co najmniej w zakresie murów i cesji praw z polisy. Warto jednak rozważyć szerszy zakres, obejmujący także elementy stałe, wyposażenie i OC.</p></details>
+          <details class="faq-item"><summary>Jak przygotować dane do wyceny ubezpieczenia nieruchomości?</summary><p>Do wyceny przydają się informacje o rodzaju nieruchomości, powierzchni, roku budowy, konstrukcji, formie własności, zabezpieczeniach, sumach ubezpieczenia oraz wybranych ryzykach dodatkowych.</p></details>
+          <details class="faq-item"><summary>Czy warto ubezpieczyć wyposażenie mieszkania?</summary><p>Tak, jeśli w domu lub mieszkaniu znajdują się sprzęty, meble, elektronika, ubrania, narzędzia albo przedmioty o większej wartości. Sama ochrona murów nie musi obejmować ruchomości domowych.</p></details>
+          <details class="faq-item"><summary>Czy ubezpieczenie nieruchomości działa przy wynajmie?</summary><p>Może działać, ale zakres trzeba dobrać do sytuacji. Właściciel może chronić lokal i wyposażenie, a najemca może potrzebować OC w życiu prywatnym oraz ochrony własnych rzeczy.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog">
+      <div class="container">
+        <div class="blog-head">
+          <div>
+            <p class="eyebrow">Tag: nieruchomosci</p>
+            <h2>Blog o ubezpieczeniach nieruchomości</h2>
+            <p>Wpisy z panelu administratora pojawią się tutaj, jeśli mają tag <strong>nieruchomosci</strong>.</p>
+          </div>
+          <div class="blog-controls">
+            <button class="slider-button" type="button" data-prev aria-label="Poprzednie wpisy">‹</button>
+            <button class="slider-button" type="button" data-next aria-label="Następne wpisy">›</button>
+          </div>
+        </div>
+        <div class="blog-list" id="propertyBlog"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="container footer-grid">
+        <div class="footer-column">
+          <h3>Ubezpieczenie</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#oferta">Ubezpieczenie komunikacyjne</a></li>
+            <li><a href="nieruchomosci.html">Ubezpieczenie nieruchomości</a></li>
+            <li><a href="index.html#oferta">Ubezpieczenie na życie</a></li>
+            <li><a href="index.html#oferta">Ubezpieczenie turystyczne</a></li>
+            <li><a href="index.html#oferta">Ubezpieczenie firmy</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Serwis</h3>
+          <ul class="footer-links">
+            <li><a href="#formularz">Jak zamówić ubezpieczenie</a></li>
+            <li><a href="regulamin.html">Regulamin serwisu</a></li>
+            <li><a href="polityka-prywatnosci.html">Polityka Ochrony Danych Osobowych</a></li>
+            <li><a href="#">Polityka Cookies</a></li>
+            <li><a href="#">Instrukcja dystrybucji produktów ubezpieczeniowych</a></li>
+            <li><a href="#">Przeciwdziałanie praniu pieniędzy oraz finansowaniu terroryzmu</a></li>
+            <li><a href="#">Rozpatrywanie reklamacji</a></li>
+            <li><a href="usuniecie-danych.html">Wycofanie zgód marketingowych</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>O nas</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#o-mnie">Radosław Lamk</a></li>
+            <li><a href="index.html#o-mnie">Dlaczego warto nam zaufać</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
+            <li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Szybki kontakt</h3>
+          <div class="footer-contact">
+            <div><span>Telefon</span><strong>+48 XXX XXX XXX</strong></div>
+            <div><span>E-mail</span><strong>kontakt@lamkubezpieczenia.pl</strong></div>
+            <div><span>Obsługa klienta</span><strong>Radosław Lamk</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-trust">
+      <div class="container trust-layout">
+        <div class="trust-copy">
+          <h3>Możesz nam zaufać</h3>
+          <p>Transparentna obsługa, ochrona danych i możliwość weryfikacji agenta.</p>
+        </div>
+        <div>
+          <div class="trust-badges">
+            <a class="trust-badge" href="https://www.knf.gov.pl/" target="_blank" rel="noreferrer" aria-label="Komisja Nadzoru Finansowego">
+              <img src="https://www.knf.gov.pl/images/logo.webp" alt="Komisja Nadzoru Finansowego" loading="lazy" />
+            </a>
+            <a class="trust-badge" href="https://uodo.gov.pl/" target="_blank" rel="noreferrer" aria-label="Urząd Ochrony Danych Osobowych">
+              <img src="https://uodo.gov.pl/bundles/app/images/logo.svg" alt="Urząd Ochrony Danych Osobowych" loading="lazy" />
+            </a>
+            <div class="trust-badge">
+              <div class="ssl-mark">
+                <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="21" width="26" height="19" rx="3"/><path d="M17 21v-6a7 7 0 0 1 14 0v6"/><path d="M24 28v5"/></svg>
+                <span>Certyfikat SSL<br />po publikacji HTTPS</span>
+              </div>
+            </div>
+          </div>
+          <div class="agent-check">
+            <strong>Agencja Ubezpieczeniowa 4-Life Sp. z o.o.</strong><br />
+            NIP: <strong>9581679014</strong> · REGON: <strong>366854052</strong><br />
+            Numer agenta Agencji Ubezpieczeniowej 4-Life Sp. z o.o.: <strong>11234631/A</strong><br />
+            Radosław Lamk — osoba fizyczna wykonująca czynności agencyjne dla Agencji Ubezpieczeniowej 4-Life Sp. z o.o.<br />
+            Numer RAU Radosława Lamk: <strong>11458708/P</strong><br />
+            <a href="https://rpu.knf.gov.pl/" target="_blank" rel="noreferrer">Sprawdź agencję i osobę wykonującą czynności agencyjne w rejestrze KNF</a>.
+            <small class="trust-note">Odnośniki prowadzą do oficjalnych serwisów informacyjnych i nie oznaczają patronatu ani rekomendacji instytucji.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© 2026 LAMKUBEZPIECZENIA.pl | Radosław Lamk</span>
+        <span>Profesjonalne doradztwo ubezpieczeniowe</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const STORAGE_KEY = 'lamkBlogPosts';
+    const defaultImage = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520"%3E%3Crect width="900" height="520" fill="%23f9f3e5"/%3E%3Cpath d="M170 265L450 95l280 170" fill="none" stroke="%230e2238" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/%3E%3Cpath d="M230 250v170h440V250" fill="%23ffffff" stroke="%231f5f9f" stroke-width="18" stroke-linejoin="round"/%3E%3Cpath d="M390 420V300h120v120" fill="%23e8f3f3" stroke="%230e2238" stroke-width="16"/%3E%3Ctext x="90" y="120" font-family="Arial" font-size="46" font-weight="700" fill="%230e2238"%3EUbezpieczenie domu%3C/text%3E%3C/svg%3E';
+    const seedPosts = [
+      { title: 'Ubezpieczenie mieszkania - mury to nie wszystko', category: 'Nieruchomości', tags: ['nieruchomosci'], image: defaultImage, date: '2026-06-12', content: 'Dobra ochrona mieszkania powinna obejmować elementy stałe, wyposażenie, OC w życiu prywatnym i ryzyka takie jak zalanie, pożar, przepięcie czy kradzież.' },
+      { title: 'Cesja polisy na bank - co trzeba wiedzieć?', category: 'Nieruchomości', tags: ['nieruchomosci', 'kredyt'], image: defaultImage, date: '2026-06-12', content: 'Przy kredycie hipotecznym bank zwykle wymaga ubezpieczenia murów z cesją. Warto jednak rozszerzyć ochronę również o wyposażenie i OC w życiu prywatnym.' }
+    ];
+
+    const blog = document.querySelector('#propertyBlog');
+    async function renderPropertyBlog() {
+      let allPosts;
+      try {
+        const response = await fetch('/api/posts');
+        const result = response.ok ? await response.json() : { posts: [] };
+        allPosts = result.posts.length ? result.posts.map(post => ({ ...post, date: post.published_at.slice(0, 10) })) : null;
+      } catch {}
+      if (!allPosts) allPosts = localStorage.getItem(STORAGE_KEY) ? JSON.parse(localStorage.getItem(STORAGE_KEY)) : seedPosts;
+      const posts = allPosts.filter(post => (post.tags || []).includes('nieruchomosci'));
+      blog.innerHTML = posts.length ? posts.map(post => `
+        <article class="blog-card">
+          <img src="${post.image || defaultImage}" alt="${post.title}" />
+          <div class="blog-card-body">
+            <div class="meta"><span>${post.category}</span><span>${post.date}</span><span>${(post.tags || []).join(', ')}</span></div>
+            <h3>${post.title}</h3>
+            <p>${post.content}</p>
+          </div>
+        </article>
+      `).join('') : '<p>Brak wpisów z tagiem nieruchomosci. Dodaj pierwszy wpis w panelu administratora.</p>';
+    }
+
+    renderPropertyBlog();
+
+    document.querySelector('[data-prev]').addEventListener('click', () => blog.scrollBy({ left: -420, behavior: 'smooth' }));
+    document.querySelector('[data-next]').addEventListener('click', () => blog.scrollBy({ left: 420, behavior: 'smooth' }));
+
+    const propertyForm = document.querySelector('#propertyForm');
+    const formSteps = [...propertyForm.querySelectorAll('.form-step')];
+    const progressDots = [...propertyForm.querySelectorAll('.wizard-dot')];
+    const prevStepButton = propertyForm.querySelector('[data-prev-step]');
+    const nextStepButton = propertyForm.querySelector('[data-next-step]');
+    const submitStepButton = propertyForm.querySelector('[data-submit-step]');
+    const propertyTypeField = propertyForm.querySelector('#propertyType');
+    const formStatus = document.querySelector('#formStatus');
+    const consentFieldNames = new Set([
+      'privacy_accepted',
+      'marketing_email_consent',
+      'marketing_sms_consent',
+      'marketing_phone_consent'
+    ]);
+    const privacyValidationMessage = 'Aby wysłać formularz, zapoznaj się z Regulaminem oraz Polityką Prywatności.';
+    const propertyProductTypes = {
+      Mieszkanie: 'Ubezpieczenie mieszkania',
+      Dom: 'Ubezpieczenie domu',
+      'Budynek w budowie': 'Ubezpieczenie domu w budowie',
+      'Dom letniskowy': 'Ubezpieczenie domku letniskowego',
+      Altana: 'Ubezpieczenie altany'
+    };
+
+    function selectedPropertyProduct() {
+      return propertyProductTypes[propertyTypeField.value] || 'Ubezpieczenie nieruchomości';
+    }
+    let currentStep = 0;
+
+    function buildConsentRecord() {
+      const timestamp = new Date().toISOString();
+      return {
+        privacy_accepted: Boolean(propertyForm.elements.privacy_accepted?.checked),
+        marketing_email_consent: Boolean(propertyForm.elements.marketing_email_consent?.checked),
+        marketing_sms_consent: Boolean(propertyForm.elements.marketing_sms_consent?.checked),
+        marketing_phone_consent: Boolean(propertyForm.elements.marketing_phone_consent?.checked),
+        consent_timestamp: timestamp,
+        consent_ip: 'NIEDOSTĘPNY - wymaga bezpiecznego backendu',
+        consent_user_agent: navigator.userAgent,
+        consent_version: '1.0',
+        form_type: selectedPropertyProduct(),
+        submitted_at: timestamp
+      };
+    }
+
+    function updateConditionalFields() {
+      const selectedType = propertyTypeField.value;
+      propertyForm.querySelectorAll('.conditional').forEach(group => {
+        let isVisible = true;
+        if (group.dataset.showFor) {
+          const allowed = group.dataset.showFor.split(',').map(item => item.trim());
+          isVisible = allowed.includes(selectedType);
+        }
+        if (group.dataset.showWhen) {
+          const separator = group.dataset.showWhen.indexOf(':');
+          const fieldId = group.dataset.showWhen.slice(0, separator);
+          const expectedValue = group.dataset.showWhen.slice(separator + 1);
+          const sourceField = propertyForm.querySelector('#' + fieldId);
+          isVisible = Boolean(sourceField && sourceField.value === expectedValue);
+        }
+        group.classList.toggle('is-hidden', !isVisible);
+        group.querySelectorAll('input, select, textarea').forEach(field => {
+          field.disabled = !isVisible;
+          field.required = isVisible && group.hasAttribute('data-required-visible');
+          if (!isVisible) {
+            if (field.type === 'checkbox' || field.type === 'radio') field.checked = false;
+            else field.value = '';
+          }
+        });
+      });
+    }
+
+    function showStep(index) {
+      currentStep = Math.max(0, Math.min(index, formSteps.length - 1));
+      formSteps.forEach((step, stepIndex) => step.classList.toggle('is-active', stepIndex === currentStep));
+      progressDots.forEach((dot, dotIndex) => {
+        dot.classList.toggle('is-active', dotIndex === currentStep);
+        dot.classList.toggle('is-complete', dotIndex < currentStep);
+      });
+      prevStepButton.style.visibility = currentStep === 0 ? 'hidden' : 'visible';
+      nextStepButton.style.display = currentStep === formSteps.length - 1 ? 'none' : 'inline-flex';
+      submitStepButton.style.display = currentStep === formSteps.length - 1 ? 'inline-flex' : 'none';
+      formStatus.textContent = '';
+      updateConditionalFields();
+    }
+
+    function validateCurrentStep() {
+      const privacyCheckbox = propertyForm.querySelector('[data-privacy-consent]');
+      if (privacyCheckbox) {
+        privacyCheckbox.setCustomValidity(privacyCheckbox.checked ? '' : privacyValidationMessage);
+      }
+      const fields = [...formSteps[currentStep].querySelectorAll('input, select, textarea')]
+        .filter(field => !field.disabled && field.offsetParent !== null);
+      const invalidField = fields.find(field => !field.checkValidity());
+      if (invalidField) {
+        invalidField.reportValidity();
+        return false;
+      }
+      return true;
+    }
+
+    propertyTypeField.addEventListener('change', updateConditionalFields);
+    propertyForm.addEventListener('change', event => {
+      if (event.target.matches('[data-privacy-consent]') && event.target.checked) {
+        event.target.setCustomValidity('');
+      }
+    });
+    propertyForm.querySelectorAll('[data-show-when]').forEach(group => {
+      const fieldId = group.dataset.showWhen.split(':')[0];
+      const sourceField = propertyForm.querySelector('#' + fieldId);
+      if (sourceField) sourceField.addEventListener('change', updateConditionalFields);
+    });
+    prevStepButton.addEventListener('click', () => showStep(currentStep - 1));
+    nextStepButton.addEventListener('click', () => {
+      if (validateCurrentStep()) showStep(currentStep + 1);
+    });
+
+    propertyForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!validateCurrentStep()) return;
+      updateConditionalFields();
+      const data = new FormData(propertyForm);
+      const grouped = {};
+      for (const [key, value] of data.entries()) {
+        if (!value || consentFieldNames.has(key)) continue;
+        grouped[key] = grouped[key] ? `${grouped[key]}, ${value}` : value;
+      }
+      const consentRecord = buildConsentRecord();
+      formStatus.textContent = 'Bezpiecznie zapisuję zgłoszenie...';
+      submitStepButton.disabled = true;
+      try {
+        const response = await fetch('/api/submissions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ form_type: selectedPropertyProduct(), data: grouped, consents: consentRecord })
+        });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || 'Nie udało się wysłać formularza.');
+        propertyForm.reset();
+        showStep(0);
+        formStatus.textContent = `Dziękuję. Zgłoszenie nr ${result.submission_id} zostało bezpiecznie zapisane.`;
+      } catch (error) {
+        formStatus.textContent = location.protocol === 'file:'
+          ? 'Formularz działa po uruchomieniu strony przez bezpieczny serwer.'
+          : error.message;
+      } finally {
+        submitStepButton.disabled = false;
+      }
+    });
+
+    showStep(0);
+  </script>
+</body>
+</html>
