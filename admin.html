@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex,nofollow" />
   <title>CRM | LAMKUBEZPIECZENIA.pl</title>
-  <link rel="stylesheet" href="admin.css?v=26" />
+  <link rel="stylesheet" href="admin.css?v=27" />
 </head>
 <body>
   <section class="login-shell" id="loginView">
@@ -59,7 +59,7 @@
           <div class="metrics-row">
             <div class="metric renewal-metric"><button class="metric-link" type="button" data-open-status="new"><span>Nowe zgłoszenia</span><strong id="metricNew">0</strong><small id="metricNewCaption">z dzisiaj</small></button><label class="renewal-window"><span>Okres</span><select id="newSubmissionWindow" aria-label="Okres nowych zgłoszeń"><option value="1" selected>Dzisiaj</option><option value="7">7 dni</option><option value="14">14 dni</option><option value="30">30 dni</option><option value="60">60 dni</option><option value="90">90 dni</option><option value="180">180 dni</option><option value="365">365 dni</option><option value="all">Cała historia</option></select></label></div>
             <div class="metric renewal-metric"><button class="metric-link" type="button" data-view-target="reminders"><span>Polisy do wznowienia</span><strong id="metricRenewals">0</strong><small id="metricRenewalCaption">w ciągu 30 dni</small></button><label class="renewal-window"><span>Okres</span><select id="renewalWindow" aria-label="Okres polis do wznowienia"><option value="7">7 dni</option><option value="14">14 dni</option><option value="30" selected>30 dni</option><option value="60">60 dni</option></select></label></div>
-            <div class="metric renewal-metric"><button class="metric-link" type="button" data-contact-due><span>Klienci do kontaktu</span><strong id="metricContacts">0</strong><small id="metricContactsCaption">wymagani dzisiaj</small></button><label class="renewal-window"><span>Okres</span><select id="contactWindow" aria-label="Okres klientów do kontaktu"><option value="1" selected>Dzisiaj</option><option value="3">3 dni</option><option value="7">7 dni</option><option value="14">14 dni</option><option value="30">30 dni</option></select></label></div>
+            <div class="metric renewal-metric"><button class="metric-link" type="button" data-contact-due><span>Klienci do kontaktu</span><strong id="metricContacts">0</strong><small id="metricContactsCaption">wymagani dzisiaj</small></button><label class="renewal-window"><span>Okres</span><select id="contactWindow" aria-label="Okres klientów do kontaktu"><option value="1" selected>1 dzień</option><option value="2">2 dni</option><option value="7">7 dni</option><option value="14">14 dni</option><option value="30">30 dni</option></select></label></div>
           </div>
           <section class="section-band">
             <div class="section-head"><div><h2>Najbliższe przypomnienia</h2><p>Polisy wymagające działania według daty końca ochrony.</p></div><button class="text-button" type="button" data-view-target="reminders">Zobacz wszystkie</button></div>
@@ -86,9 +86,11 @@
         <section class="view hidden" id="contactTasksView">
           <div class="page-head"><div><p class="eyebrow">Plan pracy</p><h1>Klienci do kontaktu</h1><p class="muted">Terminy obsługi zgłoszeń, wznowień oraz dodatkowe prośby klientów o kontakt w sprawie innych produktów.</p></div><div class="page-actions"><button class="button primary" type="button" id="showDirectContactTask">Dodaj prośbę o kontakt</button><button class="button secondary" type="button" id="refreshContactTasks">Odśwież</button></div></div>
           <section class="contact-task-composer hidden" id="directContactTaskComposer">
-            <div class="section-head"><div><h2>Nowa prośba o kontakt</h2><p>Wybierz klienta z bazy i zaplanuj termin rozmowy.</p></div><button class="icon-button" id="hideDirectContactTask" type="button" aria-label="Zamknij">×</button></div>
+            <div class="section-head"><div><h2>Nowa prośba o kontakt</h2><p>Wybierz klienta z bazy albo dodaj nową osobę spoza bazy.</p></div><button class="icon-button" id="hideDirectContactTask" type="button" aria-label="Zamknij">×</button></div>
             <form class="direct-contact-task-form" id="directContactTaskForm">
-              <label class="field wide"><span>Klient</span><input id="directContactClient" list="directContactClients" required placeholder="Wpisz imię, telefon, e-mail lub numer zgłoszenia" autocomplete="off" /><datalist id="directContactClients"></datalist><small class="field-hint">Wybierz klienta z podpowiedzi, aby przypomnienie trafiło do jego karty.</small></label>
+              <div class="contact-client-mode wide" role="radiogroup" aria-label="Źródło klienta"><label><input type="radio" name="directContactMode" value="existing" checked /> Klient z bazy</label><label><input type="radio" name="directContactMode" value="new" /> Nowy klient spoza bazy</label></div>
+              <label class="field wide" id="directExistingClientField"><span>Klient</span><input id="directContactClient" list="directContactClients" placeholder="Wpisz imię, telefon, e-mail lub numer zgłoszenia" autocomplete="off" /><datalist id="directContactClients"></datalist><small class="field-hint">Wybierz klienta z podpowiedzi, aby przypomnienie trafiło do jego karty.</small></label>
+              <div class="manual-contact-client wide hidden" id="directNewClientFields"><label class="field"><span>Imię i nazwisko</span><input id="directNewClientName" placeholder="Imię i nazwisko klienta" /></label><label class="field"><span>Telefon</span><input id="directNewClientPhone" type="tel" placeholder="Numer telefonu" /></label><label class="field"><span>E-mail</span><input id="directNewClientEmail" type="email" placeholder="Adres e-mail" /></label><small class="field-hint manual-contact-hint">Podaj co najmniej numer telefonu lub adres e-mail.</small></div>
               <label class="field"><span>Produkt lub powód kontaktu</span><input id="directContactProduct" list="directContactProducts" required placeholder="Np. OC zawodowe, ubezpieczenie firmy" /><datalist id="directContactProducts"></datalist></label>
               <label class="field"><span>Kiedy kończy się obecna ochrona (opcjonalnie)</span><input id="directContactCoverageEnd" type="date" /></label>
               <label class="field"><span>Termin kontaktu</span><input id="directContactDue" type="datetime-local" required /></label>
@@ -121,7 +123,7 @@
             <label><span>Status produkcji</span><select id="policyProductionFilter"><option value="all">Wszystkie</option><option value="sent">Wysłane</option><option value="unsent">Niewysłane</option></select></label>
             <strong id="policyCount">0 polis</strong>
           </form>
-          <div class="table-shell"><table><thead><tr><th>Start ochrony</th><th>Koniec ochrony</th><th>Imię i nazwisko klienta</th><th>Numer polisy</th><th>Produkt</th><th>Towarzystwo</th><th>Inspekcja</th><th>Plik PDF</th><th>Wysłana na produkcję</th></tr></thead><tbody id="policyRows"></tbody></table><div class="empty hidden" id="policyEmpty">Brak aktywnych lub przyszłych polis.</div></div>
+          <div class="table-shell"><table><thead><tr><th>Start ochrony</th><th>Koniec ochrony</th><th>Imię i nazwisko klienta</th><th>Numer polisy</th><th>Produkt</th><th>Towarzystwo</th><th>Status polisy</th><th>Inspekcja</th><th>Plik PDF</th><th>Wysłana na produkcję</th></tr></thead><tbody id="policyRows"></tbody></table><div class="empty hidden" id="policyEmpty">Brak aktywnych lub przyszłych polis.</div></div>
         </section>
 
         <section class="view hidden" id="policyArchiveView">
@@ -132,7 +134,7 @@
             <label><span>Status produkcji</span><select id="archiveProductionFilter"><option value="all">Wszystkie</option><option value="sent">Wysłane</option><option value="unsent">Niewysłane</option></select></label>
             <strong id="archivePolicyCount">0 polis</strong>
           </form>
-          <div class="table-shell"><table><thead><tr><th>Start ochrony</th><th>Koniec ochrony</th><th>Imię i nazwisko klienta</th><th>Numer polisy</th><th>Produkt</th><th>Towarzystwo</th><th>Inspekcja</th><th>Plik PDF</th><th>Wysłana na produkcję</th></tr></thead><tbody id="archivePolicyRows"></tbody></table><div class="empty hidden" id="archivePolicyEmpty">Archiwum polis jest puste.</div></div>
+          <div class="table-shell"><table><thead><tr><th>Start ochrony</th><th>Koniec ochrony</th><th>Imię i nazwisko klienta</th><th>Numer polisy</th><th>Produkt</th><th>Towarzystwo</th><th>Status polisy</th><th>Inspekcja</th><th>Plik PDF</th><th>Wysłana na produkcję</th></tr></thead><tbody id="archivePolicyRows"></tbody></table><div class="empty hidden" id="archivePolicyEmpty">Archiwum polis jest puste.</div></div>
         </section>
 
         <section class="view hidden" id="marketingView">
@@ -204,6 +206,6 @@
   </aside>
 
   <div class="toast-region" id="toastRegion" aria-live="polite"></div>
-  <script src="admin.js?v=26"></script>
+  <script src="admin.js?v=27"></script>
 </body>
 </html>

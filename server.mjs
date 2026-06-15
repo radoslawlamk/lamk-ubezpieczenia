@@ -453,6 +453,13 @@ async function handleApi(req, res, url) {
     return result.error ? sendJson(res, 400, result) : sendJson(res, 201, result);
   }
 
+  if (req.method === 'POST' && url.pathname === '/api/admin/contact-tasks/manual') {
+    const session = requireAdmin(req, res, { csrf: true });
+    if (!session) return;
+    const result = store.createManualContactTask(await readJson(req), session.admin_id, ip);
+    return result.error ? sendJson(res, 400, result) : sendJson(res, 201, result);
+  }
+
   const completeContactTaskMatch = url.pathname.match(/^\/api\/admin\/contact-tasks\/(custom|submission)\/(\d+)\/complete$/);
   if (completeContactTaskMatch && req.method === 'PATCH') {
     const session = requireAdmin(req, res, { csrf: true });
@@ -476,7 +483,8 @@ async function handleApi(req, res, url) {
     if (!session) return;
     const body = await readJson(req);
     if (body.status && !CRM_STATUSES.includes(body.status)) return sendJson(res, 400, { error: 'Nieprawidłowy status.' });
-    return store.updateSubmission(Number(submissionMatch[1]), body, session.admin_id, ip) ? sendJson(res, 200, { ok: true }) : sendJson(res, 404, { error: 'Nie znaleziono zgłoszenia.' });
+    const result = store.updateSubmission(Number(submissionMatch[1]), body, session.admin_id, ip);
+    return result.error ? sendJson(res, result.error === 'Nie znaleziono zgłoszenia.' ? 404 : 400, result) : sendJson(res, 200, result);
   }
 
   const actionMatch = url.pathname.match(/^\/api\/admin\/submissions\/(\d+)\/actions$/);
@@ -519,6 +527,15 @@ async function handleApi(req, res, url) {
     return store.updateRenewalStatus(Number(renewalStatusMatch[1]), body.renewal_status, session.admin_id, ip)
       ? sendJson(res, 200, { ok: true })
       : sendJson(res, 400, { error: 'Nieprawidłowy status wznowienia lub polisa nie istnieje.' });
+  }
+
+  const policyLifecycleMatch = url.pathname.match(/^\/api\/admin\/policies\/(\d+)\/lifecycle-status$/);
+  if (policyLifecycleMatch && req.method === 'PATCH') {
+    const session = requireAdmin(req, res, { csrf: true });
+    if (!session) return;
+    const body = await readJson(req);
+    const result = store.updatePolicyLifecycleStatus(Number(policyLifecycleMatch[1]), body.status, session.admin_id, ip);
+    return result.error ? sendJson(res, 400, result) : sendJson(res, 200, result);
   }
 
   const inspectionStatusMatch = url.pathname.match(/^\/api\/admin\/policies\/(\d+)\/inspection$/);

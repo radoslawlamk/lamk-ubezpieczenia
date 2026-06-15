@@ -4,6 +4,7 @@ const statusDefinitions = [
   ['offer_sent', 'Oferta wysłana'],
   ['awaiting_client', 'Oczekiwanie na klienta'],
   ['policy_concluded', 'Polisa zawarta'],
+  ['cancelled', 'Anulowana'],
   ['closed_lost', 'Zamknięte – brak zawarcia'],
   ['archive', 'Archiwum']
 ];
@@ -69,7 +70,6 @@ const actionDefinitions = [
   ['additional_offer', 'Dosłano dodatkową ofertę'],
   ['client_replied', 'Klient odpowiedział'],
   ['awaiting_decision', 'Oczekiwanie na decyzję'],
-  ['policy_concluded', 'Polisa zawarta'],
   ['client_resigned', 'Klient zrezygnował']
 ];
 const operationLabels = {
@@ -94,6 +94,8 @@ Object.assign(operationLabels, {
   presented_insurers_changed: 'Zmieniono listę przedstawionych ofert',
   policy_inspection_changed: 'Zmieniono status inspekcji polisy',
   policy_production_status_changed: 'Zmieniono status wysyłki na produkcję',
+  policy_lifecycle_changed: 'Zmieniono status polisy',
+  manual_contact_created: 'Ręcznie dodano klienta do kontaktu',
   contact_task_created: 'Zaplanowano kontakt z klientem',
   contact_task_completed: 'Wykonano zaplanowany kontakt',
   contact_due_changed: 'Zmieniono termin kolejnego kontaktu',
@@ -302,7 +304,7 @@ function localDateInputValue(date) {
 
 const savedContactWindow = localStorage.getItem('lamk_contact_window');
 const savedNewWindow = localStorage.getItem('lamk_new_submission_window');
-if (['1', '3', '7', '14', '30'].includes(savedContactWindow)) document.querySelector('#contactWindow').value = savedContactWindow;
+if (['1', '2', '7', '14', '30'].includes(savedContactWindow)) document.querySelector('#contactWindow').value = savedContactWindow;
 if (['1', '7', '14', '30', '60', '90', '180', '365', 'all'].includes(savedNewWindow)) document.querySelector('#newSubmissionWindow').value = savedNewWindow;
 document.querySelector('#contactTaskTiming option[value="dashboard"]').textContent = Number(document.querySelector('#contactWindow').value) === 1 ? 'Okres z dashboardu: dzisiaj' : `Okres z dashboardu: ${document.querySelector('#contactWindow').value} dni`;
 document.querySelector('#contactWindow').addEventListener('change', async event => {
@@ -472,33 +474,58 @@ function renderContactTasks() {
 document.querySelector('#contactTaskFilters').addEventListener('input', renderContactTasks);
 document.querySelector('#refreshContactTasks').addEventListener('click', loadContactTasks);
 const directContactComposer = document.querySelector('#directContactTaskComposer');
+function directContactMode() {
+  return document.querySelector('input[name="directContactMode"]:checked')?.value || 'existing';
+}
+function syncDirectContactMode() {
+  const manual = directContactMode() === 'new';
+  document.querySelector('#directExistingClientField').classList.toggle('hidden', manual);
+  document.querySelector('#directNewClientFields').classList.toggle('hidden', !manual);
+  document.querySelector('#directContactClient').required = !manual;
+  document.querySelector('#directNewClientName').required = manual;
+  document.querySelector('#directNewClientPhone').required = false;
+}
 function openDirectContactTaskComposer() {
   directContactComposer.classList.remove('hidden');
   if (!document.querySelector('#directContactDue').value) document.querySelector('#directContactDue').value = defaultContactDateTime();
-  document.querySelector('#directContactClient').focus();
+  syncDirectContactMode();
+  document.querySelector(directContactMode() === 'new' ? '#directNewClientName' : '#directContactClient').focus();
 }
 function closeDirectContactTaskComposer() {
   directContactComposer.classList.add('hidden');
   document.querySelector('#directContactTaskForm').reset();
+  syncDirectContactMode();
 }
+document.querySelectorAll('input[name="directContactMode"]').forEach(input => input.addEventListener('change', syncDirectContactMode));
 document.querySelector('#showDirectContactTask').addEventListener('click', openDirectContactTaskComposer);
 document.querySelector('#hideDirectContactTask').addEventListener('click', closeDirectContactTaskComposer);
 document.querySelector('#cancelDirectContactTask').addEventListener('click', closeDirectContactTaskComposer);
 document.querySelector('#directContactTaskForm').addEventListener('submit', async event => {
   event.preventDefault();
-  const client = selectedDirectContactClient();
-  if (!client) return toast('Wybierz klienta z listy podpowiedzi.', true);
+  const manual = directContactMode() === 'new';
+  const client = manual ? null : selectedDirectContactClient();
+  if (!manual && !client) return toast('Wybierz klienta z listy podpowiedzi.', true);
   const button = event.submitter;
   button.disabled = true;
   try {
-    await api(`/api/admin/submissions/${client.id}/contact-tasks`, { method:'POST', body:JSON.stringify({
+    const task = {
       product: document.querySelector('#directContactProduct').value.trim(),
       coverage_end_date: document.querySelector('#directContactCoverageEnd').value || null,
       contact_due_at: document.querySelector('#directContactDue').value,
       notes: document.querySelector('#directContactNotes').value.trim()
-    }) });
+    };
+    if (manual) {
+      await api('/api/admin/contact-tasks/manual', { method:'POST', body:JSON.stringify({
+        ...task,
+        client_name: document.querySelector('#directNewClientName').value.trim(),
+        client_phone: document.querySelector('#directNewClientPhone').value.trim(),
+        client_email: document.querySelector('#directNewClientEmail').value.trim()
+      }) });
+    } else {
+      await api(`/api/admin/submissions/${client.id}/contact-tasks`, { method:'POST', body:JSON.stringify(task) });
+    }
     closeDirectContactTaskComposer();
-    toast(`Zaplanowano kontakt z klientem: ${client.client_name}.`);
+    toast(manual ? 'Nowy klient został dodany i zapisano termin kontaktu.' : `Zaplanowano kontakt z klientem: ${client.client_name}.`);
     await Promise.all([loadContactTasks(), loadCoreData()]);
   } catch (error) { toast(error.message, true); }
   finally { button.disabled = false; }
@@ -691,6 +718,7 @@ const policyLifecycleLabels = {
   active: ['AKTYWNA', 'active'],
   upcoming: ['OCZEKUJE NA START', 'upcoming'],
   renewed: ['WZNOWIONA', 'renewed'],
+  cancelled: ['ANULOWANA', 'cancelled'],
   expired: ['WYGASŁA', 'expired'],
   archived: ['ARCHIWALNA', 'archived']
 };
@@ -816,7 +844,13 @@ function nextYearEnd(dateValue) { const date = new Date(`${dateValue}T00:00:00`)
 function bindDrawerActions(item) {
   const currentPolicy = item.policies.find(policy => policy.is_current);
   const syncOfferDetailFields = () => {
-    const status = document.querySelector('#detailStatus').value;
+    let status = document.querySelector('#detailStatus').value;
+    if (status === 'policy_concluded' && item.status !== 'policy_concluded') {
+      document.querySelector('#detailStatus').value = item.status;
+      status = item.status;
+      openPolicyHistoryForm(item);
+      toast('Aby nadać status „Polisa zawarta”, uzupełnij i zapisz formularz nowej polisy.', true);
+    }
     document.querySelector('#detailOfferInsurerField').classList.toggle('hidden', status !== 'offer_sent');
     document.querySelector('#detailPresentedInsurersField').classList.toggle('hidden', status !== 'awaiting_client');
     if (status === 'awaiting_client') document.querySelector('#presentedInsurerPicker').open = true;
@@ -828,9 +862,17 @@ function bindDrawerActions(item) {
   document.querySelector('#addPolicyButton').addEventListener('click', () => openPolicyHistoryForm(item));
   document.querySelectorAll('[data-renew-policy]').forEach(button => button.addEventListener('click', () => openPolicyHistoryForm(item, Number(button.dataset.renewPolicy))));
   document.querySelector('#saveManagement').addEventListener('click', async () => {
-    await api(`/api/admin/submissions/${item.id}`, { method:'PATCH', body:JSON.stringify({ status:document.querySelector('#detailStatus').value, assigned_admin_id:document.querySelector('#detailAdmin').value, contact_due_at:document.querySelector('#detailContactDue').value || null, client_name_override:document.querySelector('#detailClientName').value.trim(), client_email_override:document.querySelector('#detailClientEmail').value.trim(), offer_insurer:document.querySelector('#detailOfferInsurer').value.trim(), presented_insurers:selectedPresentedInsurers() }) });
-    toast('Obsługa zgłoszenia została zapisana.');
-    await refreshAfterChange(item.id);
+    const button = document.querySelector('#saveManagement');
+    if (document.querySelector('#detailStatus').value === 'policy_concluded' && item.status !== 'policy_concluded') {
+      openPolicyHistoryForm(item);
+      return toast('Najpierw zapisz nową polisę. Status zostanie nadany automatycznie.', true);
+    }
+    button.disabled = true;
+    try {
+      await api(`/api/admin/submissions/${item.id}`, { method:'PATCH', body:JSON.stringify({ status:document.querySelector('#detailStatus').value, assigned_admin_id:document.querySelector('#detailAdmin').value, contact_due_at:document.querySelector('#detailContactDue').value || null, client_name_override:document.querySelector('#detailClientName').value.trim(), client_email_override:document.querySelector('#detailClientEmail').value.trim(), offer_insurer:document.querySelector('#detailOfferInsurer').value.trim(), presented_insurers:selectedPresentedInsurers() }) });
+      toast(document.querySelector('#detailStatus').value === 'cancelled' ? 'Polisa i zgłoszenie zostały oznaczone jako ANULOWANE.' : 'Obsługa zgłoszenia została zapisana.');
+      await refreshAfterChange(item.id);
+    } catch (error) { toast(error.message, true); button.disabled = false; }
   });
   document.querySelector('#contactTaskForm').addEventListener('submit', async event => {
     event.preventDefault();
@@ -987,8 +1029,17 @@ function policyProductionControl(item) {
   return `<div class="production-control"><span class="production-status ${statusClass}">${escapeHtml(status)}</span>${item.sent_to_production_at ? `<small>${formatDate(item.sent_to_production_at)}</small>` : ''}<select data-production-status="${item.id}" aria-label="Ręczny status wysyłki polisy ${escapeHtml(item.policy_number)}"><option value="none"${!manual && !automatic ? ' selected' : ''}>NIE WYSŁANA</option><option value="manual"${manual ? ' selected' : ''}>TAK - RĘCZNIE</option>${automatic ? '<option value="automatic" selected>TAK - AUTOMAT</option>' : ''}</select>${sendButton}</div>`;
 }
 
-function policyRowMarkup(item) {
-  return `<tr data-id="${item.submission_id}" data-policy-id="${item.id}"><td>${formatDate(item.start_date,true)}</td><td>${formatDate(item.end_date,true)}</td><td><strong>${escapeHtml(item.client_name)}</strong></td><td>${escapeHtml(item.policy_number)}</td><td>${escapeHtml(item.product_type)}</td><td>${escapeHtml(item.insurer)}</td><td>${policyInspectionControl(item)}</td><td>${item.document_count?`<span class="badge policy_concluded">${item.document_count} PDF</span>`:'<span class="badge archive">brak</span>'}</td><td>${policyProductionControl(item)}</td></tr>`;
+function policyLifecycleControl(item, archive = false) {
+  const cancelled = Boolean(item.canceled_at);
+  if (archive) {
+    const label = cancelled ? 'ANULOWANA' : item.lifecycle_status === 'expired' ? 'WYGASŁA' : 'ARCHIWALNA';
+    return `<span class="badge ${cancelled ? 'cancelled' : 'archive'}">${label}</span>${cancelled ? `<small class="policy-cancel-date">${formatDate(item.canceled_at)}</small>` : ''}`;
+  }
+  return `<div class="policy-lifecycle-control ${cancelled ? 'cancelled' : 'active'}"><select data-policy-lifecycle="${item.id}" aria-label="Status polisy ${escapeHtml(item.policy_number)}"><option value="active"${cancelled ? '' : ' selected'}>AKTYWNA</option><option value="cancelled"${cancelled ? ' selected' : ''}>ANULOWANA</option></select>${cancelled ? `<small>Anulowano ${formatDate(item.canceled_at)}</small>` : ''}</div>`;
+}
+
+function policyRowMarkup(item, archive = false) {
+  return `<tr class="${item.canceled_at ? 'policy-row-cancelled' : ''}" data-id="${item.submission_id}" data-policy-id="${item.id}"><td>${formatDate(item.start_date,true)}</td><td>${formatDate(item.end_date,true)}</td><td><strong>${escapeHtml(item.client_name)}</strong></td><td>${escapeHtml(item.policy_number)}</td><td>${escapeHtml(item.product_type)}</td><td>${escapeHtml(item.insurer)}</td><td>${policyLifecycleControl(item, archive)}</td><td>${policyInspectionControl(item)}</td><td>${item.document_count?`<span class="badge policy_concluded">${item.document_count} PDF</span>`:'<span class="badge archive">brak</span>'}</td><td>${policyProductionControl(item)}</td></tr>`;
 }
 
 function renderPolicyCollection(archive) {
@@ -1000,7 +1051,7 @@ function renderPolicyCollection(archive) {
   const rows = document.querySelector(archive ? '#archivePolicyRows' : '#policyRows');
   const empty = document.querySelector(archive ? '#archivePolicyEmpty' : '#policyEmpty');
   const count = document.querySelector(archive ? '#archivePolicyCount' : '#policyCount');
-  rows.innerHTML = policies.map(policyRowMarkup).join('');
+  rows.innerHTML = policies.map(item => policyRowMarkup(item, archive)).join('');
   empty.classList.toggle('hidden', policies.length > 0);
   count.textContent = `${policies.length} ${policies.length === 1 ? 'polisa' : policies.length > 1 && policies.length < 5 ? 'polisy' : 'polis'}`;
 }
@@ -1066,6 +1117,23 @@ async function handlePolicyTableInteraction(event, archive) {
       toast(inspection.value === '1' ? 'Inspekcja została oznaczona jako wykonana.' : 'Inspekcja została oznaczona jako niewykonana.');
       if (archive) await loadArchivedPolicies(); else await loadIssuedPolicies();
     } catch (error) { toast(error.message, true); inspection.disabled = false; }
+    return;
+  }
+  const lifecycle = event.target.closest('[data-policy-lifecycle]');
+  if (lifecycle) {
+    event.stopPropagation();
+    if (event.type !== 'change') return;
+    const cancelled = lifecycle.value === 'cancelled';
+    if (cancelled && !confirm('Oznaczyć tę polisę jako ANULOWANĄ? Po 30 dniach zniknie z sekcji Polisy wystawione i pozostanie w archiwum.')) {
+      lifecycle.value = 'active';
+      return;
+    }
+    lifecycle.disabled = true;
+    try {
+      await api(`/api/admin/policies/${lifecycle.dataset.policyLifecycle}/lifecycle-status`, { method:'PATCH', body:JSON.stringify({ status:lifecycle.value }) });
+      toast(cancelled ? 'Polisa została oznaczona jako ANULOWANA.' : 'Anulowanie polisy zostało cofnięte.');
+      await Promise.all([loadIssuedPolicies(), loadArchivedPolicies(), loadCoreData()]);
+    } catch (error) { toast(error.message, true); lifecycle.disabled = false; }
     return;
   }
   const row = event.target.closest('[data-id]');
